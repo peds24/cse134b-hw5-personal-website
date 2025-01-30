@@ -77,6 +77,9 @@
         </script>
         <noscript>Sorry, your browser does not support JavaScript!</noscript>
         <hr>
+        <p>Hello from the custom <code>&lt;hello-world&gt;</code> tag:</p>
+        <hello-world></hello-world>
+        <hr>
         <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
 
         <br>
@@ -171,6 +174,15 @@
         ctx.arc(60, 50, 30, 0, Math.PI * 2, false); // Full moon
         ctx.fillStyle = 'orange';
         ctx.fill();
+
+        class HelloWorld extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+                this.shadowRoot.innerHTML = `<p>Hello World!</p>`;
+            }
+        }
+        customElements.define('hello-world', HelloWorld);
     </script>
 </body>
 </html>
