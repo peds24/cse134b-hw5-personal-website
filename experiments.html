@@ -66,8 +66,25 @@
             console.log("Hello, experiments!");
         </code>
         <hr>
-        <button> click me ? </button>
+        <button>click me ?</button>
         <hr>
+        <p><dfn>Insanity</dfn> is doing the same thing over and over again while expecting a different result.</p>
+        <hr>
+        <p>Press <kbd>Cmd</kbd> + <kbd>Q</kbd> on Mac and <kbd>Ctrl</kbd> <kbd>Q</kbd> on Windows</p>
+        <hr>
+        <script>
+            document.write("Hello World!")
+        </script>
+        <noscript>Sorry, your browser does not support JavaScript!</noscript>
+        <hr>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
+
+        <br>
+        <svg width="200" height="100">
+            <circle cx="60" cy="50" r="30" fill="orange" />
+        </svg>
+        <hr>
+
         <section>
             <h2>Viewer Survey</h2>
             <form action="http://www.foo.com", method="GET">
@@ -115,20 +132,27 @@
             </form>
         </section>
         
+        <hr>
+
         <button onclick="showContent()">Show hidden content</button>
         <template>
             <h2>Monki</h2>
             <img src="images/monki.jpeg" width="214" height="204">
         </template>
 
+        <hr>
+
         <figure>
             <img src="images/monki.jpeg" width="214" height="204">
             <figcaption>military monki</figcaption>
         </figure>
 
+        <hr>
+
         <audio controls>
             <source src="misc/Nahuel Pennisi - Toco y Me Voy (En Estado Acústico).mp3" type="audio/mpeg">
         </audio> 
+        <hr>
     </main>
 
     <footer>
@@ -142,6 +166,11 @@
         function showContent() {
          // Create new element from monkey template: Title + Image
         }
+        const ctx = document.getElementById('myCanvas').getContext('2d');
+        ctx.beginPath();
+        ctx.arc(60, 50, 30, 0, Math.PI * 2, false); // Full moon
+        ctx.fillStyle = 'orange';
+        ctx.fill();
     </script>
 </body>
 </html>
