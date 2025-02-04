@@ -1,0 +1,228 @@
+/* Root Variables */
+:root {
+    --primary-color: rgb(240, 131, 22);
+    --hover-color: white;
+    --bg-color: black;
+    --font-family-primary: 'IBM Plex Mono', monospace;
+    --font-family-fallback: 'Courier New', Courier, monospace;
+    --font-size-base: 1rem;
+    --transition-duration: 0.3s;
+    --transition-ease: ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--primary-color);
+    transition: color var(--transition-duration) var(--transition-ease);
+}
+
+a:visited {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+body {
+    font-family: var(--font-family-primary, var(--font-family-fallback));
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    font-size: var(--font-size-base);
+    color: white;
+}
+
+header {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 1rem 0;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+header nav a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+header nav a:hover {
+    color: var(--hover-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main h1 {
+    text-align: left;
+    font-size: 3rem;
+    color: white;
+}
+
+section {
+    width: 90%;
+    margin: 20px auto;
+}
+
+search form input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #222;
+    color: white;
+    font-size: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table caption {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+table th,
+table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+
+table td a {
+    color: var(--primary-color);
+    transition: color var(--transition-duration) var(--transition-ease);
+}
+
+table td a:hover {
+    color: var(--hover-color);
+}
+
+video {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    align-self: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--bg-color);
+}
+
+footer p {
+    color: white;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    header nav {
+        flex-direction: column;
+    }
+
+    main h1 {
+        font-size: 2.5rem;
+    }
+
+    footer p {
+        font-size: 0.875rem;
+    }
+
+    search form input {
+        font-size: 1rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table caption {
+        font-size: 2rem;
+    }
+
+    table th,
+    table td {
+        font-size: 0.875rem;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    /* Stack table content vertically */
+    table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    table th,
+    table td {
+        display: block;
+        width: 100%;
+    }
+
+    table td {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    table td a {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 601px) {
+    header nav {
+        flex-direction: row;
+    }
+
+    main h1 {
+        font-size: 2.75rem;
+    }
+
+    search form input {
+        font-size: 1rem;
+    }
+
+    table th, table td {
+        font-size: 1rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

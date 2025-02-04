@@ -3,36 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/projectStyles.css">
     <title>Pedro Serdio</title>
 </head>
 <body>
     <header>
         <nav>
-            <a href="/">Home</a>
-            <a href="/work-exp.html">Work Experiences</a>
-            <a href="/projects.html">Projects</a>
-            <a href="/experiments.html">Experiments</a>
+          <a href="/">home</a>
+          <a href="/work-exp.html">work-exp</a>
+          <a href="/projects.html">projects</a>
+          <a href="/experiments.html">experiments</a>
         </nav>
     </header>
     <main>
-        <h1>Hello, projects</h1>
         <section>
             <search>
                 <form>
-                  <input name="fsrch" id="fsrch" placeholder="Search Projects">
+                  <input name="fsrch" id="fsrch" placeholder="search projects">
                 </form>
             </search>
-
+            <h1>completedProjects</h1>
             <table>
-                <colgroup>
-                    <col span="1" style="background-color:lightblue">
-                  </colgroup>
-                <caption>Completed Projects</caption>
                 <tr>
-                  <th>Title</th>
-                  <th>Language</th>
-                  <th>Description</th>
-                  <th>Repo Link</th>
+                  <th>title</th>
+                  <th>language</th>
+                  <th>description</th>
+                  <th>repoLink</th>
                 </tr>
                 <tr>
                   <td>WebScribe (WebApp developer Journal)</td>
@@ -40,7 +36,7 @@
                   <td>A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations. The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach notably uses background-only color tagging to achieve its distinctive look. The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.
                   </td>
                   <td>
-                    <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">GitHub Link</a>
+                    <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">gitHub link</a>
                   </td>
                 </tr>
                 <tr>
@@ -59,10 +55,16 @@
         </section>
 
         <section>
+          <h2>mediaGallery</h2>
             <video controls width="700">
                 <source src="misc/110demo.mp4" type="video/mp4"/>
               </video>
+              <figcaption>Here is a demo showcasing the WebScribe project, highlighting the UI and key features.</figcaption>
         </section>
+
+        <footer>
+          <p>© 2025 Pedro Serdio</p>
+        </footer>
     </main>
 
 </body>
