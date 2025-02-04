@@ -29,6 +29,7 @@ body {
 h1 {
     margin: 0;
     color: white;
+    font-size: 50px;
 }
 
 #scrollable {
@@ -47,19 +48,19 @@ h1 {
 
 #scrollable p {
     margin: 0;
-    font-size: 10px;
+    font-size: 20px;
     text-align: justify;
     color: white;
     margin-top: 10px;
 }
 
 #scrollable a {
-    font-size: 10px;
+    font-size: 20px;
 }
 
 #scrollable h2 {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 15px;
     margin-bottom: 0;
 }
@@ -86,13 +87,22 @@ h1 {
 
 #fixed nav a {
     margin: 0 15px; /* Adjust the spacing between items */
+    font-size: 30px;
 }
 
 #fixed img {
     display: block;
-    height: 300px;
-    width: 300px;
+    max-height: 80%;
+    max-width: 80%;
     margin-top: 10px;
+    cursor: pointer;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    color: white;
+    margin-bottom: 10px;
 }
 
 /* Phone Layout (max-width: 600px) */
@@ -112,11 +122,48 @@ h1 {
     }
 
     #fixed img {
-        height: 200px;
-        width: 200px;
+        max-height: 80%; /* Slightly larger image for tablets */
+        max-width: 80%;
     }
 
     #scrollable {
         padding: 10px;
+    }
+
+    #fixed nav a {
+        font-size: 18px; /* Adjust font size for mobile */
+        margin: 0 8px; /* Reduce spacing for mobile */
+    }
+
+    
+}
+
+/* Tablet Layout (max-width: 1024px) */
+@media (max-width: 1024px) and (min-width: 601px) {
+    body {
+        flex-direction: column; /* Stack elements vertically for tablets */
+    }
+
+    #scrollable, #fixed {
+        width: 100%; /* Take full width */
+        height: auto; /* Adjust height based on content */
+    }
+
+    #fixed {
+        margin-top: 20px; /* Adds spacing between sections */
+    }
+
+    #fixed img {
+        max-height: 80%; /* Slightly larger image for tablets */
+        max-width: 80%;
+    }
+
+    #scrollable {
+        padding: 15px; /* Slightly more padding for tablets */
+    }
+
+    #fixed nav a {
+        font-size: 24px; /* Adjust font size for tablets */
+        margin: 0 10px; /* Reduce spacing for tablets */
     }
 }
