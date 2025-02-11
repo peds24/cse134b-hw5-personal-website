@@ -42,9 +42,30 @@
             <a href="/">home</a>
             <a href="/work-exp.html">work-exp</a>
             <a href="/projects.html">projects</a>
-            <a href="/experiments.html">experiments</a>
         </nav>
-        <img id="image" src="images/ascii-profile-pic.png" alt="Ascii art of Pedro Serdio">
+
+        <picture>
+            <source 
+                srcset="images/largeFace.png" 
+                media="(min-width: 1024px)">
+            <source 
+                srcset="images/mediumFace.png" 
+                media="(min-width: 601px) and (max-width: 1023px)">
+
+            <source 
+                srcset="images/smallFace.png" 
+                media="(max-width: 600px)">
+    
+            <!-- Fallback image for browsers not supporting <picture> -->
+            <img id="image" 
+                 src="images/monki.jpeg" 
+                 alt="Ascii art of Pedro Serdio">
+        </picture>
+
+
+
+
+        
     </div>
 
     <script>

@@ -150,6 +150,7 @@ content-card {
 @media (max-width: 600px) {
     header nav {
         flex-direction: column;
+        font-size: 0.75 rem;
     }
 
     content-card {
@@ -157,10 +158,14 @@ content-card {
         padding: 15px;
     }
 
-    h1 {
-        font-size: 2.5rem;
+    main h1 {
+        font-size: 1.9em;
+        text-align: center;
     }
 
+    #addExp{
+        font-size: 1.9em
+    }
     footer p {
         font-size: 0.875rem;
     }
@@ -178,5 +183,6 @@ content-card {
 
     h1 {
         font-size: 2.75rem;
+        text-align: center;
     }
 }

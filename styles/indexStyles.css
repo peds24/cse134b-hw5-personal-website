@@ -1,7 +1,7 @@
 /* Root Variables */
 :root {
-    --primary-color: rgb(240, 131, 22);
-    --hover-color: white;
+    --primary-color: color(display-p3 0.941176 0.513725 0.086275 / 1.000000);
+    --hover-color: color-mix(in srgb, #FFEB3B 2.5%, #FFC107 63.2%);
     --bg-color: black;
     --font-family-primary: 'IBM Plex Mono', monospace;
     --font-family-fallback: 'Courier New', Courier, monospace;
@@ -104,32 +104,29 @@ main p:hover strong {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     flex-shrink: 0;
+    align-items: center;
 }
 
 #fixed nav {
-    width: 100%;
-    padding: 0.5rem 0;
-    text-align: center;
+    width: 95%;
+    padding: 0.5rem;
     z-index: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #fixed nav a {
-    margin: 0 1rem;
     font-size: 1.875rem;
 }
 
 #fixed img {
     display: block;
-    max-height: 80%;
-    max-width: 80%;
-    margin-top: 0.5rem;
-    cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 footer {
@@ -172,8 +169,8 @@ footer p:active {
     }
 
     #fixed img {
-        max-height: 80%; 
-        max-width: 80%;
+        max-height: 100%; 
+        max-width: 100%;
     }
 
     #scrollable {
@@ -201,8 +198,9 @@ footer p:active {
     }
 
     #fixed img {
-        max-height: 80%; 
-        max-width: 80%;
+        padding-left: 2rem;
+        max-height: 98%; 
+        max-width: 98%;
     }
 
     #scrollable {
