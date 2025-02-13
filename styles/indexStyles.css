@@ -113,8 +113,6 @@ main p:hover strong {
     padding: 0.5rem;
     z-index: 1;
     display: flex;
-    /* justify-content: center;
-    gap: 2rem; */
     justify-content: space-between;
 }
 
@@ -159,7 +157,6 @@ footer p:active {
         flex-direction: column;
         overflow-x: hidden; 
     }
-
     #scrollable, #fixed {
         align-self: center;
         padding: 0;
@@ -173,7 +170,12 @@ footer p:active {
     }
 
     #fixed nav a {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+    #fixed nav {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
