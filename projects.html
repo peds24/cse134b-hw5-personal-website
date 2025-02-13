@@ -16,56 +16,79 @@
         </nav>
     </header>
     <main>
-      <search>
-        <form>
-          <input name="fsrch" id="fsrch" placeholder="search projects">
-        </form>
-      </search>
-      <section id="table">
-        <h1>completedProjects</h1>
-        <table>
-            <tr>
-              <th>title</th>
-              <th>language</th>
-              <th>description</th>
-              <th>repoLink</th>
-            </tr>
-            <tr>
-              <td>WebScribe (WebApp developer Journal)</td>
-              <td>HTML, CSS, JS</td>
-              <td>A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations. The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach notably uses background-only color tagging to achieve its distinctive look. The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.
-              </td>
-              <td>
-                <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">gitHub link</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Compress/Uncompress a File</td>
-              <td>C++</td>
-              <td>A C++ compression tool that uses Huffman encoding to compress and decompress text files. The project consists of two main components: a compression program that creates encoded files with optimized character representation, and a decompression program that reconstructs the original text. The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression. Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing. <br> The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</td>
-              <td>Repo is private, but can be shared upon request.</td>
-            </tr>
-            <tr>
-                <td>Graph Project</td>
-                <td>C++</td>
-                <td>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD. The project uses a map data structure to represent undirected graphs and includes several key algorithmic features: basic graph operations, Dijkstra's algorithm for weighted shortest paths, modified BFS for unweighted shortest paths, and a Disjoint Set implementation for finding connected components with threshold constraints. The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications. </td>
-                <td>Repo is private, but can be shared upon request.</td>
-              </tr>
-            </table> 
-      </section>
+      <h1>projects</h1>
 
-        <section>
-          <h2>mediaGallery</h2>
+      <!-- <button type="button" class="collapsible"><h2>WebScribe (WebApp developer Journal)</h2></button>
+      <div class="content">
+        <p>Add JS here to create collapsabel contaning teh content for each project I have done</p>
+      </div>
+
+      <hr> -->
+      <section>
+        <h2>WebScribe (WebApp developer Journal)</h2>
+        <h3>HTML, CSS, JS</h3>
+        <ul>
+            <li>A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface.</li>
+            <li>The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations.</li>
+            <li>The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations.</li>
+            <li>The design approach notably uses background-only color tagging to achieve its distinctive look.</li>
+            <li>The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.</li>
+        </ul>
+        <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">gitHub link</a>
+        
+        <details class="mediaGallery">
+            <summary>mediaGallery</summary>
             <video controls width="700">
                 <source src="misc/110demo.mp4" type="video/mp4"/>
               </video>
               <figcaption>Here is a demo showcasing the WebScribe project, highlighting the UI and key features.</figcaption>
         </section>
+      </section>
 
-        <footer>
-          <p>© 2025 Pedro Serdio</p>
-        </footer>
+      <hr>
+
+      <section>
+        <h2>Compress/Uncompress a File</h2>
+        <h3>C++</h3>
+        <ul>
+            <li>A C++ compression tool that uses Huffman encoding to compress and decompress text files.</li>
+            <li>The project consists of two main components:
+          <ol>
+              <li>A compression program that creates encoded files with optimized character representation.</li>
+              <li>A decompression program that reconstructs the original text.</li>
+          </ol>
+            </li>
+            <li>The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression.</li>
+            <li>Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing.</li>
+            <li>The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</li>
+        </ul>
+        <a href="">Repo is private, but can be shared upon request.</a>
+      </section>
+
+      <hr>
+
+      <section>
+        <h2>Graph Project</h2>
+        <h3>C++</h3>
+        <ul>
+            <li>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD.</li>
+            <li>The project uses a map data structure to represent undirected graphs.</li>
+            <li>Includes several key algorithmic features:
+          <ul>
+              <li>Basic graph operations</li>
+              <li>Dijkstra's algorithm for weighted shortest paths</li>
+              <li>Modified BFS for unweighted shortest paths</li>
+              <li>Disjoint Set implementation for finding connected components with threshold constraints</li>
+          </ul>
+            </li>
+            <li>The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications.</li>
+        </ul>
+        <a href="">Repo is private, but can be shared upon request.</a>
+      </section>
     </main>
+    <footer>
+      <p>© 2025 Pedro Serdio</p>
+    </footer>
 
 </body>
 
