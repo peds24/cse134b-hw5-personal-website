@@ -1,7 +1,9 @@
 /* Root Variables */
 :root {
-    --primary-color: color(display-p3 0.941176 0.513725 0.086275 / 1.000000);
-    --hover-color: color-mix(in srgb, #FFEB3B 95%, #FFC107 5%);
+    /* --primary-color: color(display-p3 0.941176 0.513725 0.086275 / 1.000000); */
+    /* --hover-color: color-mix(in srgb, #FFEB3B 95%, #FFC107 5%); */
+    --primary-color: orange;
+    --hover-color: white;
     --bg-color: black;
     --font-family-primary: 'IBM Plex Mono', monospace;
     --font-family-fallback: 'Courier New', Courier, monospace;
