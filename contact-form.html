@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/contactStyles.css">
     <title>contact-form</title>
 </head>
 <body>
@@ -16,7 +17,24 @@
     </header>
     <main>
         <h1>contact-me</h1>
-        
+        <form id="contact-form" action="https://www.httpbin.org">
+            <label for="name">full-name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required minlength="1" autocomplete="off">
+            <output class="error" id="name-error"></output>
+
+            <label for="email">email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="off">
+            <output class="error" id="email-error"></output>
+
+            <label for="comments">comments</label>
+            <textarea id="message" name="message" rows="6" maxlength="600"></textarea>
+            <output class="info" id="comment-info"></output>
+
+            <input type="hidden" id="bot" name="bot" value="true">
+
+            <button id="submit-button" type="submit">Submit</button>
+
+        </form>
     </main>
 </body>
 </html>

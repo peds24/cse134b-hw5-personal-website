@@ -65,7 +65,7 @@ main {
     align-self: center;
 }
 
-.collapsible {
+/* .collapsible {
     color: var(--primary-color);
     cursor: pointer;
     padding: 15px 0px 10px 10px;
@@ -85,7 +85,7 @@ main {
     display: none;
     overflow: hidden;
     background-color: var(--bg-color);
-}
+} */
 
 main h1 {
     text-align: left;
