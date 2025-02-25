@@ -12,14 +12,14 @@
           <a href="/">home</a>
           <a href="/work-exp.html">work-exp</a>
           <a href="/projects.html">projects</a>
-          <a href="/contact-form.html">contact-me</a>
+          <a href="/form-no-js.html">contact-me</a>
         </nav>
     </header>
     <main>
         <h1>contact-me</h1>
         <form id="contact-form" action="https://www.httpbin.org">
             <label for="name">full-name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required minlength="1" autocomplete="off">
+            <input type="text" id="name" name="name" required autocomplete="off">
             <output class="error" id="name-error"></output>
 
             <label for="email">email <span class="required">*</span></label>
@@ -27,7 +27,7 @@
             <output class="error" id="email-error"></output>
 
             <label for="comments">comments</label>
-            <textarea id="message" name="message" rows="6" maxlength="600"></textarea>
+            <textarea id="message" name="message" rows="6" maxlength="576" pattern="[a-zA-Z.,!?;:'\]"></textarea>
             <output class="info" id="comment-info"></output>
 
             <input type="hidden" id="bot" name="bot" value="true">
