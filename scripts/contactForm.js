@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const formErrorsInput = document.getElementById("form-errors")
 
     const fullname = document.getElementById("fullname");
-    fullname.addEventListener("input", () => {
+    fullname.addEventListener("blur", () => {
         const name_pattern = /^[A-Za-z\s'-]+$/;
         if (!name_pattern.test(fullname.value)) {
             fullname.setCustomValidity("Full name can only contain alphabetic characters.");
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const email = document.getElementById("email");
-    email.addEventListener("input", () =>{
+    email.addEventListener("blur", () =>{
         const email_pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!email_pattern.test(email.value)) {
             email.setCustomValidity("Please enter a valid email address.");
