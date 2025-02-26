@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
     font-size: var(--font-size-base);
     background-color: var(--bg-color);
-    color: var(--text-color);
 }
 
 h1 {
@@ -107,12 +106,14 @@ input:focus:invalid {
     font-family: var(--font-family-primary), var(--font-family-fallback);
     font-size: larger;
     background-color: var(--primary-color);
-    border: 2px solid;
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     transition: var(--transition-duration);
 }
 #submit-button:hover{
     background-color: var(--hover-color);
+    color: invert(var(--text-color));
     cursor: pointer;
 }
 

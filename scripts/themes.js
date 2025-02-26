@@ -1,6 +1,8 @@
+let customColor = false;  // Flag to control whether to use the accent color
 document.addEventListener("DOMContentLoaded", function() {
+
     // Check if the theme container is present and display it as a flex container (js enabled check)
-    if(document.getElementById('themeContainer')){
+    if (document.getElementById('themeContainer')) {
         document.getElementById('themeContainer').style.display = 'flex';
     }
 
@@ -8,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const sun = document.getElementById('sun');
     const moon = document.getElementById('moon');
     const color_picker = document.getElementById('color-picker');
+    const resetButton = document.getElementById('reset');
 
     // Retrieve and apply previously saved theme settings from localStorage (if available)
     const savedTheme = localStorage.getItem('theme');
@@ -25,25 +28,34 @@ document.addEventListener("DOMContentLoaded", function() {
         document.documentElement.style.setProperty('--text-color', textColor);
     }
 
-    const savedPrimaryColor = localStorage.getItem('primary-color')
+    const savedPrimaryColor = localStorage.getItem('primary-color');
     if (savedPrimaryColor) {
         document.documentElement.style.setProperty('--primary-color', savedPrimaryColor);
     }
 
+    // Function to set default primary color based on theme
+    const setDefaultPrimaryColor = (theme) => {
+        if (theme === '#CCCCCC') {
+            document.documentElement.style.setProperty('--primary-color', 'green'); 
+        } else if (theme === 'black') {
+            document.documentElement.style.setProperty('--primary-color', 'orange'); 
+        }
+    };
+
     // Function to apply transition effect on background color changes
     const applyTransition = () => {
         const preArr = document.querySelectorAll('#preComp pre');
-        if (!preArr[0].hidden){
+        if (!preArr[0].hidden) {
             preArr[0].style.transition = 'background-color 1s ease-in';
         }
-        if(!preArr[1].hidden){
+        if (!preArr[1].hidden) {
             preArr[1].style.transition = 'background-color 1s ease-in';
-        } 
-        if(!preArr[2].hidden){
+        }
+        if (!preArr[2].hidden) {
             preArr[2].style.transition = 'background-color 1s ease-in';
         }
-        
-        document.body.style.transition = 'background-color 1s ease-in';      
+
+        document.body.style.transition = 'background-color 1s ease-in';
     };
 
     // Add event listener to switch to light theme when the sun icon is clicked
@@ -52,9 +64,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const lightTheme = '#CCCCCC';
             const textColor = 'black';
             const preColorLight = '#B1B1B1';
+            
             document.documentElement.style.setProperty('--bg-color', lightTheme);
             document.documentElement.style.setProperty('--text-color', textColor);
-            document.documentElement.style.setProperty('--pre-background', preColorLight)
+            document.documentElement.style.setProperty('--pre-background', preColorLight);
+
+            if(!customColor){
+                setDefaultPrimaryColor('#CCCCCC'); 
+            }
 
             applyTransition();
 
@@ -70,12 +87,18 @@ document.addEventListener("DOMContentLoaded", function() {
             const darkTheme = 'black';
             const textColor = 'white';
             const preColorDark = 'black';
+            
             document.documentElement.style.setProperty('--bg-color', darkTheme);
             document.documentElement.style.setProperty('--text-color', textColor);
-            document.documentElement.style.setProperty('--pre-background', preColorDark)
+            document.documentElement.style.setProperty('--pre-background', preColorDark);
+
+            if(!customColor){
+                setDefaultPrimaryColor('black'); 
+            }
+            
 
             applyTransition();
-            
+
             localStorage.setItem('theme', darkTheme);
             localStorage.setItem('text-color', textColor);
             localStorage.setItem('pre-color-bg', preColorDark);
@@ -89,7 +112,18 @@ document.addEventListener("DOMContentLoaded", function() {
             if (accentColor) {
                 document.documentElement.style.setProperty('--primary-color', accentColor);
                 localStorage.setItem('primary-color', accentColor);
+                customColor = true;
             }
+        });
+    }
+
+    // Add event listener to reset the theme and custom color to defaults
+    if (resetButton) {
+        resetButton.addEventListener('click', () => {
+            localStorage.removeItem('primary-color');
+            customColor = false;
+            const savedTheme = localStorage.getItem('theme');
+            setDefaultPrimaryColor(savedTheme)
         });
     }
 });
