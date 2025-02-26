@@ -1,0 +1,23 @@
+#form-info{
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+#form-error{
+    color: white;
+    margin-bottom: 10px;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 5s ease-out;
+}
+
+.flash {
+    animation: flash 5s ease-out;
+}
+
+@keyframes flash {
+    0% { background-color: red; }
+    100% { background-color: transparent; }
+}

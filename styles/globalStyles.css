@@ -1,0 +1,14 @@
+:root {
+    /* --primary-color: color(display-p3 0.941176 0.513725 0.086275 / 1.000000); */
+    /* --hover-color: color-mix(in srgb, #FFEB3B 95%, #FFC107 5%); */
+    --primary-color: orange;
+    --text-color: white;
+    --hover-color: white;
+    --bg-color: black;
+    --pre-background:black;
+    --font-family-primary: 'IBM Plex Mono', monospace;
+    --font-family-fallback: 'Courier New', Courier, monospace;
+    --font-size-base: 1rem;
+    --transition-duration: 0.3s;
+    --transition-ease: ease-in-out;
+}

@@ -1,17 +1,3 @@
-/* Root Variables */
-:root {
-    /* --primary-color: color(display-p3 0.941176 0.513725 0.086275 / 1.000000);
-    --hover-color: color-mix(in srgb, #FFEB3B 95%, #FFC107 5%); */
-    --primary-color: orange;
-    --hover-color: white;
-    --bg-color: black;
-    --font-family-primary: 'IBM Plex Mono', monospace;
-    --font-family-fallback: 'Courier New', Courier, monospace;
-    --font-size-base: 1rem;
-    --transition-duration: 0.3s;
-    --transition-ease: ease-in-out;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -27,7 +13,7 @@ body {
     height: 100vh;
     overflow-x: hidden;
     font-size: var(--font-size-base);
-    color: white;
+    color: var(--text-color);
 }
 a {
     color: var(--primary-color);
@@ -74,7 +60,7 @@ main {
 main h1 {
     text-align: left;
     font-size: 3rem;
-    color: white; 
+    color: var(--text-color); 
 }
 
 content-card {
@@ -82,7 +68,7 @@ content-card {
     max-width: 100%;
     border: 2px solid var(--primary-color, orange);
     border-radius: 8px;
-    background-color: black;
+    background-color: var(--bg-color);
     margin: 20px 0;
     padding: 10px 20px;
 }
@@ -94,12 +80,12 @@ content-card h2 {
 }
 
 content-card h3 {
-    color: white;
+    color: var(--text-color);
     font-size: 1.25rem;
 }
 
 content-card h4 {
-    color: white;
+    color: var(--text-color);
     font-size: 1rem;
     margin: 0.5rem 0;
 }
@@ -116,7 +102,7 @@ footer {
     text-align: center;
     padding-bottom: 20px;
     width: 95%;
-    color: white;
+    color: var(--text-color);
 }
 
 /* Media Queries */
