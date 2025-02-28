@@ -1,21 +1,33 @@
-let customColor = false;  // Flag to control whether to use the accent color
-document.addEventListener("DOMContentLoaded", function() {
+// TODO: Refactor repeated code into reusable functions
+// TODO: Add ability to reset only current the to default theme while keeping the other mode visible
+// TODO: Add accesability logic in order to change buttons and text colors for mazimum legibility and contrast regardless of user input color
 
+document.addEventListener("DOMContentLoaded", function() {
     // Check if the theme container is present and display it as a flex container (js enabled check)
     if (document.getElementById('themeContainer')) {
         document.getElementById('themeContainer').style.display = 'flex';
     }
 
-    // Grab necessary DOM elements (sun, moon, color picker)
+    // Retrieve interactable items from DOM
     const sun = document.getElementById('sun');
     const moon = document.getElementById('moon');
     const color_picker = document.getElementById('color-picker');
     const resetButton = document.getElementById('reset');
 
-    // Retrieve and apply previously saved theme settings from localStorage (if available)
+    // Retrieve and apply previous themes accent from local storage
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
+    const light_accent = localStorage.getItem('light-accent');
+    const dark_accent = localStorage.getItem('dark-accent')
+
+    if (savedTheme){
         document.documentElement.style.setProperty('--bg-color', savedTheme);
+        if (savedTheme == '#CCCCCC') {
+            localStorage.setItem('light-accent',light_accent);
+            document.documentElement.style.setProperty('--primary-color', light_accent);
+        } else {
+            localStorage.setItem('dark-accent',dark_accent);
+            document.documentElement.style.setProperty('--primary-color', dark_accent);
+        }
     }
 
     const savedPreBg = localStorage.getItem('pre-color-bg');
@@ -28,102 +40,140 @@ document.addEventListener("DOMContentLoaded", function() {
         document.documentElement.style.setProperty('--text-color', textColor);
     }
 
-    const savedPrimaryColor = localStorage.getItem('primary-color');
-    if (savedPrimaryColor) {
-        document.documentElement.style.setProperty('--primary-color', savedPrimaryColor);
+    // Change to Light Theme
+    if(sun){
+        sun.addEventListener('click', () => {
+            const light_bg = '#CCCCCC';
+            let light_accent = 'blue';
+            const light_text = 'black';
+            const light_preColor = '#B1B1B1';
+    
+            document.documentElement.style.setProperty('--bg-color', light_bg);
+            document.documentElement.style.setProperty('--text-color', light_text);
+            document.documentElement.style.setProperty('--pre-background', light_preColor);
+    
+           if (localStorage.getItem('custom-color') != null){
+                light_accent = localStorage.getItem('custom-color');
+                document.documentElement.style.setProperty('--primary-color', light_accent);
+            } else {
+                document.documentElement.style.setProperty('--primary-color', light_accent);
+            }
+    
+            applyTransition();
+    
+            localStorage.setItem('theme', light_bg);
+            localStorage.setItem('text-color', light_text);
+            localStorage.setItem('pre-color-bg', light_preColor);
+            localStorage.setItem('light-accent', light_accent);
+        });
     }
 
-    // Function to set default primary color based on theme
-    const setDefaultPrimaryColor = (theme) => {
-        if (theme === '#CCCCCC') {
-            document.documentElement.style.setProperty('--primary-color', 'green'); 
-        } else if (theme === 'black') {
-            document.documentElement.style.setProperty('--primary-color', 'orange'); 
-        }
-    };
+    //Change to dark theme
+    if(moon){
+        moon.addEventListener('click', () => {
+            const dark_bg = 'black';
+            let dark_accent = 'orange';
+            const dark_text = 'white';
+            const dark_preColor = 'black';
+    
+            document.documentElement.style.setProperty('--bg-color', dark_bg);
+            document.documentElement.style.setProperty('--text-color', dark_text);
+            document.documentElement.style.setProperty('--pre-background', dark_preColor);
+    
+            if (localStorage.getItem('custom-color') != null){
+                dark_accent = localStorage.getItem('custom-color');
+                document.documentElement.style.setProperty('--primary-color', dark_accent);
+            } else {
+                document.documentElement.style.setProperty('--primary-color', dark_accent);
+            }
+    
+            applyTransition();
+    
+            localStorage.setItem('theme', dark_bg);
+            localStorage.setItem('text-color', dark_text);
+            localStorage.setItem('pre-color-bg', dark_preColor);
+            localStorage.setItem('dark-accent', dark_accent);
+        });
+    }
 
-    // Function to apply transition effect on background color changes
+
+    if (color_picker){
+        color_picker.addEventListener('click', () => {
+            const customColor = prompt('Enter a color for the accent color (e.g., #ff0000 or red):');
+            if (customColor) {
+                const currentTheme = localStorage.getItem('theme');
+
+                if (currentTheme == 'black'){
+                    localStorage.setItem('custom-color', customColor);
+                    localStorage.setItem('dark-accent', customColor);
+                    document.documentElement.style.setProperty('--primary-color', customColor);
+                } else {
+                    localStorage.setItem('custom-color', customColor);
+                    localStorage.setItem('light-accent', customColor);
+                    document.documentElement.style.setProperty('--primary-color', customColor);
+                }
+            }
+        });
+    }
+
+
+    // Resets both themes to default
+    if(resetButton){
+        resetButton.addEventListener('click', () =>{
+            const currentTheme = localStorage.getItem('theme');
+
+            //future proof this by making a function... this is repeated code for now
+            if(currentTheme == 'black'){
+                const dark_bg = 'black';
+                let dark_accent = 'orange';
+                const dark_text = 'white';
+                const dark_preColor = 'black';
+                
+                document.documentElement.style.setProperty('--bg-color', dark_bg);
+                document.documentElement.style.setProperty('--text-color', dark_text);
+                document.documentElement.style.setProperty('--pre-background', dark_preColor);
+                document.documentElement.style.setProperty('--primary-color', dark_accent);
+
+                localStorage.setItem('theme', dark_bg);
+                localStorage.setItem('text-color', dark_text);
+                localStorage.setItem('pre-color-bg', dark_preColor);
+                localStorage.setItem('dark-accent', dark_accent);
+            }
+            else {
+                const light_bg = '#CCCCCC';
+                let light_accent = 'blue';
+                const light_text = 'black';
+                const light_preColor = '#B1B1B1';
+                
+                document.documentElement.style.setProperty('--bg-color', light_bg);
+                document.documentElement.style.setProperty('--text-color', light_text);
+                document.documentElement.style.setProperty('--pre-background', light_preColor);
+                document.documentElement.style.setProperty('--primary-color', light_accent);
+
+                localStorage.setItem('theme', light_bg);
+                localStorage.setItem('text-color', light_text);
+                localStorage.setItem('pre-color-bg', light_preColor);
+                localStorage.setItem('light-accent', light_accent);
+            }
+            localStorage.removeItem('custom-color')
+        });
+    }
+
+    //Apply transitions to page
     const applyTransition = () => {
+        const transition = 'background-color 2s ease'
         const preArr = document.querySelectorAll('#preComp pre');
         if (!preArr[0].hidden) {
-            preArr[0].style.transition = 'background-color 1s ease-in';
+            preArr[0].style.transition = transition;
         }
         if (!preArr[1].hidden) {
-            preArr[1].style.transition = 'background-color 1s ease-in';
+            preArr[1].style.transition = transition;
         }
         if (!preArr[2].hidden) {
-            preArr[2].style.transition = 'background-color 1s ease-in';
+            preArr[2].style.transition = transition;
         }
 
-        document.body.style.transition = 'background-color 1s ease-in';
+        document.body.style.transition = transition;
     };
 
-    // Add event listener to switch to light theme when the sun icon is clicked
-    if (sun) {
-        sun.addEventListener('click', () => {
-            const lightTheme = '#CCCCCC';
-            const textColor = 'black';
-            const preColorLight = '#B1B1B1';
-            
-            document.documentElement.style.setProperty('--bg-color', lightTheme);
-            document.documentElement.style.setProperty('--text-color', textColor);
-            document.documentElement.style.setProperty('--pre-background', preColorLight);
-
-            if(!customColor){
-                setDefaultPrimaryColor('#CCCCCC'); 
-            }
-
-            applyTransition();
-
-            localStorage.setItem('theme', lightTheme);
-            localStorage.setItem('text-color', textColor);
-            localStorage.setItem('pre-color-bg', preColorLight);
-        });
-    }
-
-    // Add event listener to switch to dark theme when the moon icon is clicked
-    if (moon) {
-        moon.addEventListener('click', () => {
-            const darkTheme = 'black';
-            const textColor = 'white';
-            const preColorDark = 'black';
-            
-            document.documentElement.style.setProperty('--bg-color', darkTheme);
-            document.documentElement.style.setProperty('--text-color', textColor);
-            document.documentElement.style.setProperty('--pre-background', preColorDark);
-
-            if(!customColor){
-                setDefaultPrimaryColor('black'); 
-            }
-            
-
-            applyTransition();
-
-            localStorage.setItem('theme', darkTheme);
-            localStorage.setItem('text-color', textColor);
-            localStorage.setItem('pre-color-bg', preColorDark);
-        });
-    }
-
-    // Add event listener to allow the user to pick a custom accent color
-    if (color_picker) {
-        color_picker.addEventListener('click', () => {
-            const accentColor = prompt('Enter a color for the accent color (e.g., #ff0000 or red):');
-            if (accentColor) {
-                document.documentElement.style.setProperty('--primary-color', accentColor);
-                localStorage.setItem('primary-color', accentColor);
-                customColor = true;
-            }
-        });
-    }
-
-    // Add event listener to reset the theme and custom color to defaults
-    if (resetButton) {
-        resetButton.addEventListener('click', () => {
-            localStorage.removeItem('primary-color');
-            customColor = false;
-            const savedTheme = localStorage.getItem('theme');
-            setDefaultPrimaryColor(savedTheme)
-        });
-    }
 });
