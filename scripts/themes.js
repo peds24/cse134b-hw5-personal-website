@@ -1,6 +1,5 @@
 // TODO: Refactor repeated code into reusable functions
 // TODO: Add ability to reset only current the to default theme while keeping the other mode visible
-// TODO: Add accesability logic in order to change buttons and text colors for mazimum legibility and contrast regardless of user input color
 
 document.addEventListener("DOMContentLoaded", function() {
     // Check if the theme container is present and display it as a flex container (js enabled check)
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sun.addEventListener('click', () => {
             const light_bg = '#CCCCCC';
             let light_accent = 'blue';
-            const light_text = 'black';
+            const light_text = '#000';
             const light_preColor = '#B1B1B1';
     
             document.documentElement.style.setProperty('--bg-color', light_bg);
@@ -71,10 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //Change to dark theme
     if(moon){
         moon.addEventListener('click', () => {
-            const dark_bg = 'black';
+            const dark_bg = '#000';
             let dark_accent = 'orange';
-            const dark_text = 'white';
-            const dark_preColor = 'black';
+            const dark_text = '#FFF';
+            const dark_preColor = '#000';
     
             document.documentElement.style.setProperty('--bg-color', dark_bg);
             document.documentElement.style.setProperty('--text-color', dark_text);
@@ -103,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (customColor) {
                 const currentTheme = localStorage.getItem('theme');
 
-                if (currentTheme == 'black'){
+                if (currentTheme == '#000'){
                     localStorage.setItem('custom-color', customColor);
                     localStorage.setItem('dark-accent', customColor);
                     document.documentElement.style.setProperty('--primary-color', customColor);
@@ -123,11 +122,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const currentTheme = localStorage.getItem('theme');
 
             //future proof this by making a function... this is repeated code for now
-            if(currentTheme == 'black'){
-                const dark_bg = 'black';
+            if(currentTheme == '#000'){
+                const dark_bg = '#000';
                 let dark_accent = 'orange';
-                const dark_text = 'white';
-                const dark_preColor = 'black';
+                const dark_text = '#FFF';
+                const dark_preColor = '#000';
                 
                 document.documentElement.style.setProperty('--bg-color', dark_bg);
                 document.documentElement.style.setProperty('--text-color', dark_text);
@@ -142,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function() {
             else {
                 const light_bg = '#CCCCCC';
                 let light_accent = 'blue';
-                const light_text = 'black';
+                const light_text = '#000';
                 const light_preColor = '#B1B1B1';
                 
                 document.documentElement.style.setProperty('--bg-color', light_bg);
