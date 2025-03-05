@@ -70,6 +70,7 @@ main {
 #contact-form > label{
     font-size: larger;
     margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
 #contact-form > input, textarea{
