@@ -1,0 +1,44 @@
+## WebScribe (WebApp developer Journal)
+#### HTML, CSS, JS
+- A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface.
+- The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations.
+- The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations.
+- The design approach notably uses background-only color tagging to achieve its distinctive look.
+- The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.
+
+[Link to repo](https://github.com/cse110-sp24-group17/cse110-sp24-group17)
+
+---
+<h2>Compress/Uncompress a File</h2>
+<h3>C++</h3>
+<ul>
+    <li>A C++ compression tool that uses Huffman encoding to compress and decompress text files.</li>
+    <li>The project consists of two main components:
+  <ol>
+      <li>A compression program that creates encoded files with optimized character representation.</li>
+      <li>A decompression program that reconstructs the original text.</li>
+  </ol>
+    </li>
+    <li>The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression.</li>
+    <li>Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing.</li>
+    <li>The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</li>
+</ul>
+<a href="">Repo is private, but can be shared upon request.</a>
+
+---
+<h2>Graph Project</h2>
+<h3>C++</h3>
+<ul>
+    <li>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD.</li>
+    <li>The project uses a map data structure to represent undirected graphs.</li>
+    <li>Includes several key algorithmic features:
+  <ul>
+      <li>Basic graph operations</li>
+      <li>Dijkstra's algorithm for weighted shortest paths</li>
+      <li>Modified BFS for unweighted shortest paths</li>
+      <li>Disjoint Set implementation for finding connected components with threshold constraints</li>
+  </ul>
+    </li>
+    <li>The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications.</li>
+</ul>
+<a href="">Repo is private, but can be shared upon request.</a>
