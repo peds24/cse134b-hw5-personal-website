@@ -14,19 +14,17 @@ class ProjectCard extends HTMLElement {
         const linkText = this.getAttribute('linkText')
         this.shadowRoot.innerHTML = `
         <style>
-        .project-card {
+        .card-elem {
             display: flex;
-            gap: 1rem;
-            padding: 14px 14px;
             width: fit-content;
-            height: fit-content;
-
+            height: auto;
             border: var(--primary-color) solid;
             border-radius: 25px;
             align-items: center;
-            margin-top: 1rem; /* Remove this when adding manually */
+            justify-self: center;
+            gap: 1rem;
         }
-        .project-card picture {
+        .card-elem picture {
             position: relative;
             width: 250px;
             height: 250px;
@@ -35,46 +33,43 @@ class ProjectCard extends HTMLElement {
             align-items: center;
             background-color: color-mix(in srgb, var(--primary-color), transparent 80%);
             border: solid var(--primary-color);
+            margin: 1rem 0 1rem 1rem
         }
-        .project-card img {
+        .card-elem img {
             width: 100%;
             height: auto;
         }
-        .project-card .text {
+        .card-elem .text {
             display: flex;
             flex-direction: column;
             width: 612px;
             height: auto;
-            align-self: flex-start;
-            gap: 5px;
+            align-self: center;
+            gap: 1rem;
         }
-        .project-card .title {
+
+        .card-elem .title {
             margin: 0;
-            font-weight: 700;
             font-size: 2rem;
-            line-height: normal;
+            padding: 0 1rem;
         }
-        .project-card .languages {
+        .card-elem .languages {
             margin: 0;
-            font-weight: 700;
             font-style: italic;
             color: var(--primary-color);
-            font-size: 1rem;
-            letter-spacing: 0;
-            line-height: normal;
-            white-space: nowrap;
+            font-size: 1.5 rem;
+            padding: 0 1rem;
         }
-        .project-card .description{
+        .card-elem .description{
             margin: 0;
-            font-weight: 400;
             font-size: 1rem;
-            letter-spacing: 0;
-            line-height: normal;
+            padding: 0 1rem;
         }
         
         a {
             color: var(--primary-color);
-             transition: color var(--transition-duration) var(--transition-ease);
+            transition: color var(--transition-duration) var(--transition-ease);
+            padding: 0 1rem 1rem 1rem;
         }
 
         a:visited {
@@ -85,67 +80,64 @@ class ProjectCard extends HTMLElement {
             color: var(--hover-color);
         }
 
-        a[href=""] {
+        a[href="private"] {
             color: var(--primary-color);
             pointer-events: none;
             cursor: default;
         }
 
-        @media (max-width: 834px) {
-            header nav {
-                flex-direction: column;
-                font-size: 0.75rem;
-                gap: 1rem;
-            }
-
-            h1{
-                font-size: 2rem;
-            }
-
-            .project-card{
+        @media (max-width: 879px) {
+            .card-elem{
                 display: flex;
                 flex-direction: column;
+                width:100%;
+                height: auto;
             }
-            .project-card picture {
-                position: relative;
-                width: 200px;
-                height: 200px;
+            .card-elem picture {
+                width: 150px;
+                height: 150px;
                 border-radius: 25px;
                 display: flex;
                 align-items: center;
             }
+            
+            .card-elem .title{
+                font-size: 1.5rem;
+            
+            }
+            .card-elem .description{
+                font-size: 0.9rem;
 
-            .project-card .text {
-                display: flex;
-                flex-direction: column;
-                width: 389px;
-                gap: 5px;
+            }
+            .card-elem .text{
+                width: 100%;
             }
 
             a {
                 align-self: center;
+                font-size: 0.9rem;
             }
         }
 
-        @media (max-width: 1195px) and (min-width: 835px) {
-            .project-card picture {
+        @media (max-width: 1195px) and (min-width: 880px) {
+            .card-elem{
+                display: flex;
+                flex-direction: row;
+                width:100%;
+                height: auto;
+            }
+
+            .card-elem picture {
                 width: 200px;
                 height: 200px;
                 border-radius: 25px;
                 display: flex;
-            }
-
-            .project-card .text {
-                display: flex;
-                flex-direction: column;
-                width: 538px;
-                height: auto;
             }
         }
 
     </style>
 
-    <div class="project-card">
+    <div class="card-elem">
         <picture>
             <source srcset="${altImage}" media="(max-width: 600px)">
             <img src="${defaultImage}" alt="Image of ${title}">
