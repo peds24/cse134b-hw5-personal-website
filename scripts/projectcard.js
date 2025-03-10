@@ -167,40 +167,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.getElementById("card-container");
     const loadLocalButton = document.getElementById("load-local");
 
+    function loadProjectsFromLocalStorage() {
+        const localProjects = JSON.parse(localStorage.getItem('projects'));
+        if (localProjects) {
+            localProjects.forEach(project => {
+                const card = document.createElement('project-card');
+                card.setAttribute('title', project.title);
+                card.setAttribute('imageLarge', project.imageLarge);
+                card.setAttribute('imageSmall', project.imageSmall);
+                card.setAttribute('description', project.description);
+                card.setAttribute('languages', project.languages);
+                card.setAttribute('link', project.link);
+                
+                if (project.link === "private") {
+                    card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
+                } else if (project.link === "") {
+                    card.setAttribute('linkText', "");
+                } else {
+                    card.setAttribute('linkText', "Project repo linked here.");
+                }
+            
+                cardContainer.appendChild(card);
+            });
+        }
+    }
+
     async function fetchAndSaveProjects() {
         try {
-            const response = await fetch("./data/projects.json"); // Replace with the path to your JSON file
+            const response = await fetch("./data/projects.json"); 
             const projects = await response.json();
             localStorage.setItem("projects", JSON.stringify(projects));
             console.log("Projects saved to localStorage.");
+            loadProjectsFromLocalStorage(); 
         } catch (error) {
             console.error("Failed to fetch and save projects:", error);
         }
-
-        const localProjects = JSON.parse(localStorage.getItem('projects'));
-        localProjects.forEach(project => {
-            const card = document.createElement('project-card');
-            card.setAttribute('title', project.title);
-            card.setAttribute('imageLarge', project.imageLarge);
-            card.setAttribute('imageSmall', project.imageSmall);
-
-            card.setAttribute('description', project.description);
-            card.setAttribute('languages', project.languages);
-            card.setAttribute('link', project.link)
-            
-            if (project.link == "private"){
-                card.setAttribute('linkText', "Repo is private, but can be shared upon request.")
-            } else if (project.link == ""){
-                card.setAttribute('linkText', "")
-            } else{
-                card.setAttribute('linkText', "Project repo linked here.")
-            }
-            
-        
-            cardContainer.appendChild(card);
-        });
     }
 
+    // Load projects from localStorage on page load
+    loadProjectsFromLocalStorage();
 
     // Add event listener for the button
     loadLocalButton.addEventListener("click", fetchAndSaveProjects);

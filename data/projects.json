@@ -21,6 +21,6 @@
         "imageSmall": "/images/C.png",
         "languages": "C++",
         "description": "A custom C++ graph class developed for an advanced data structures course at UCSD. Implements Dijkstra's algorithm, a modified BFS for shortest paths, and a Disjoint Set for connected components with threshold constraints. Focused on runtime efficiency and adherence to API specifications.",
-        "link": ""
+        "link": "private"
     }
 ]
