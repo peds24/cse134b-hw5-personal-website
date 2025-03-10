@@ -1,110 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/projectStyles.css">
-    <link rel="stylesheet" href="styles/globalStyles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/projectStyles.css">
+  <link rel="stylesheet" href="styles/globalStyles.css">
 
-    <script src="/scripts/themes.js"></script>
+  <script src="/scripts/themes.js"></script>
 
-    <title>projects</title>
+  <title>projects</title>
 </head>
+
 <body>
-    <header>
-      <nav>
-        <a href="/">home</a>
-        <a href="/work-exp.html">work-exp</a>
+  <header>
+    <nav>
+      <a href="/">home</a>
+      <a href="/work-exp.html">work-exp</a>
 
-        <noscript>
-            <a href="/projects.html">projects</a>
-            <a href="/form-no-js.html">contact-me</a>
-        </noscript>
-        
-        <!-- Link with default display of 'none' when JS is disabled -->
-        <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
-        <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
-        
-        <script>
-            // Check if JavaScript is enabled
-            if (typeof(Storage) !== "undefined") {
-                    var dynamicLinks = document.querySelectorAll("#dynamicLink");
-                    dynamicLinks.forEach(function(link) {
-                        link.style.display = "inline";
-                    });
-                }
-        </script>
+      <noscript>
+        <a href="/projects.html">projects</a>
+        <a href="/form-no-js.html">contact-me</a>
+      </noscript>
+
+      <!-- Link with default display of 'none' when JS is disabled -->
+      <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
+      <a id="dynamicLink" href="/form-with-js.html" style="display: none;">contact-me</a>
+
+      <script>
+        // Check if JavaScript is enabled
+        if (typeof (Storage) !== "undefined") {
+          var dynamicLinks = document.querySelectorAll("#dynamicLink");
+          dynamicLinks.forEach(function (link) {
+            link.style.display = "inline";
+          });
+        }
+      </script>
     </nav>
-    </header>
-    <main>
-      <h1>projects</h1>
+  </header>
+  <main>
+    <h1>projects</h1>
 
-      <hr> 
-      <section>
-        <h2>WebScribe (WebApp developer Journal)</h2>
-        <h3>HTML, CSS, JS</h3>
-        <ul>
-            <li>A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface.</li>
-            <li>The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations.</li>
-            <li>The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations.</li>
-            <li>The design approach notably uses background-only color tagging to achieve its distinctive look.</li>
-            <li>The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.</li>
-        </ul>
-        <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">gitHub link</a>
-        
-        <details class="mediaGallery">
-            <summary>mediaGallery</summary>
-            <video controls width="700">
-                <source src="misc/110demo.mp4" type="video/mp4"/>
-              </video>
-            <figcaption>Here is a demo showcasing the WebScribe project, highlighting the UI and key features.</figcaption>
-        </details>
-      </section>
+    <hr>
+    <section>
+      <h2>WebScribe (WebApp developer Journal)</h2>
+      <h3>HTML, CSS, JS</h3>
+      <ul>
+        <li>A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface.</li>
+        <li>The development process progressed from basic sketches to detailed Figma designs, including custom icons and
+          animations.</li>
+        <li>The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes,
+          and interactive elements like volume control and sliding animations.</li>
+        <li>The design approach notably uses background-only color tagging to achieve its distinctive look.</li>
+        <li>The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through
+          a demonstration video.</li>
+      </ul>
+      <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">gitHub link</a>
 
-      <hr>
+      <details class="mediaGallery">
+        <summary>mediaGallery</summary>
+        <video controls width="700">
+          <source src="misc/110demo.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Here is a demo showcasing the WebScribe project, highlighting the UI and key features.</figcaption>
+      </details>
+    </section>
 
-      <section>
-        <h2>Compress/Uncompress a File</h2>
-        <h3>C++</h3>
-        <ul>
-            <li>A C++ compression tool that uses Huffman encoding to compress and decompress text files.</li>
-            <li>The project consists of two main components:
+    <hr>
+
+    <section>
+      <h2>Compress/Uncompress a File</h2>
+      <h3>C++</h3>
+      <ul>
+        <li>A C++ compression tool that uses Huffman encoding to compress and decompress text files.</li>
+        <li>The project consists of two main components:
           <ol>
-              <li>A compression program that creates encoded files with optimized character representation.</li>
-              <li>A decompression program that reconstructs the original text.</li>
+            <li>A compression program that creates encoded files with optimized character representation.</li>
+            <li>A decompression program that reconstructs the original text.</li>
           </ol>
-            </li>
-            <li>The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression.</li>
-            <li>Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing.</li>
-            <li>The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</li>
-        </ul>
-        <a href="">Repo is private, but can be shared upon request.</a>
-      </section>
+        </li>
+        <li>The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the
+          Huffman tree during decompression.</li>
+        <li>Future plans include optimizing the header file format by storing the Huffman tree structure more
+          efficiently using array indexing.</li>
+        <li>The project demonstrates practical applications of data compression algorithms and has sparked interest in
+          encryption and data security.</li>
+      </ul>
+      <a href="">Repo is private, but can be shared upon request.</a>
+    </section>
 
-      <hr>
+    <hr>
 
-      <section>
-        <h2>Graph Project</h2>
-        <h3>C++</h3>
-        <ul>
-            <li>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD.</li>
-            <li>The project uses a map data structure to represent undirected graphs.</li>
-            <li>Includes several key algorithmic features:
+    <section>
+      <h2>Graph Project</h2>
+      <h3>C++</h3>
+      <ul>
+        <li>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD.</li>
+        <li>The project uses a map data structure to represent undirected graphs.</li>
+        <li>Includes several key algorithmic features:
           <ul>
-              <li>Basic graph operations</li>
-              <li>Dijkstra's algorithm for weighted shortest paths</li>
-              <li>Modified BFS for unweighted shortest paths</li>
-              <li>Disjoint Set implementation for finding connected components with threshold constraints</li>
+            <li>Basic graph operations</li>
+            <li>Dijkstra's algorithm for weighted shortest paths</li>
+            <li>Modified BFS for unweighted shortest paths</li>
+            <li>Disjoint Set implementation for finding connected components with threshold constraints</li>
           </ul>
-            </li>
-            <li>The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications.</li>
-        </ul>
-        <a href="">Repo is private, but can be shared upon request.</a>
-      </section>
-    </main>
-    <footer>
-      <p>© 2025 Pedro Serdio</p>
-    </footer>
+        </li>
+        <li>The implementation focuses on runtime efficiency and practical usability while adhering to given API
+          specifications.</li>
+      </ul>
+      <a href="">Repo is private, but can be shared upon request.</a>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Pedro Serdio</p>
+  </footer>
 
 </body>
 

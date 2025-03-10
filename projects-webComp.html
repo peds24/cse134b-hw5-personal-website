@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
 
     <script src="/scripts/themes.js"></script>
     <script src="/scripts/projectcard.js"></script>
-    
 
     <title>projects</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -25,30 +26,31 @@
 
             <!-- Link with default display of 'none' when JS is disabled -->
             <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
-            <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
+            <a id="dynamicLink" href="/form-with-js.html" style="display: none;">contact-me</a>
 
             <script>
                 // Check if JavaScript is enabled
-                if (typeof(Storage) !== "undefined") {
-                        var dynamicLinks = document.querySelectorAll("#dynamicLink");
-                        dynamicLinks.forEach(function(link) {
-                            link.style.display = "inline";
-                        });
-                    }
+                if (typeof (Storage) !== "undefined") {
+                    var dynamicLinks = document.querySelectorAll("#dynamicLink");
+                    dynamicLinks.forEach(function (link) {
+                        link.style.display = "inline";
+                    });
+                }
             </script>
         </nav>
     </header>
     <h1>projects</h1>
-    <main>
-        <project-card></project-card>
+    <main id="card-container">
+        
     </main>
 
     <div id="button-container">
         <button id="load-local">Load Local</button>
         <button id="load-remote">Load Remote</button>
+        <button id="clear-storage">Clear Projects</button>
     </div>
     <footer>
-        
+
         <p>© 2025 Pedro Serdio</p>
     </footer>
 

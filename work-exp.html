@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="styles/globalStyles.css">
 
     <script src="/scripts/themes.js"></script>
-    
+
     <title>work-experiences</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -20,23 +22,23 @@
                 <a href="/projects.html">projects</a>
                 <a href="/form-no-js.html">contact-me</a>
             </noscript>
-            
+
             <!-- Link with default display of 'none' when JS is disabled -->
             <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
-            <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
-            
+            <a id="dynamicLink" href="/form-with-js.html" style="display: none;">contact-me</a>
+
             <script>
                 // Check if JavaScript is enabled
-                if (typeof(Storage) !== "undefined") {
+                if (typeof (Storage) !== "undefined") {
                     var dynamicLinks = document.querySelectorAll("#dynamicLink");
-                    dynamicLinks.forEach(function(link) {
+                    dynamicLinks.forEach(function (link) {
                         link.style.display = "inline";
                     });
                 }
             </script>
         </nav>
     </header>
-    
+
     <main>
         <section>
             <h1>workExperiences</h1>
@@ -45,10 +47,15 @@
                 <h3>banorte, cdmx, mexico</h3>
                 <h4>july - october 2021</h4>
                 <ul>
-                    <li>created a <abbr title="proof of concept">poc</abbr> for an internal tool, a chatbot for automating and optimizing levantamiento de requerimientos (requirements gathering) documents.</li>
-                    <li>utilized web languages, java, and the quarkus framework to host and make the application cloud-native, with the chatbot model connecting to gemini through google's vertex ai.</li>
-                    <li>designed the application with a microservice architecture, ensuring each component can be individually replaced or reused in other applications.</li>
-                    <li>joined the full production team for this 12-week project, collaborating with various company teams including cyber security, project managers, ai/ml coders, and cloud developers.</li>
+                    <li>created a <abbr title="proof of concept">poc</abbr> for an internal tool, a chatbot for
+                        automating and optimizing levantamiento de requerimientos (requirements gathering) documents.
+                    </li>
+                    <li>utilized web languages, java, and the quarkus framework to host and make the application
+                        cloud-native, with the chatbot model connecting to gemini through google's vertex ai.</li>
+                    <li>designed the application with a microservice architecture, ensuring each component can be
+                        individually replaced or reused in other applications.</li>
+                    <li>joined the full production team for this 12-week project, collaborating with various company
+                        teams including cyber security, project managers, ai/ml coders, and cloud developers.</li>
                 </ul>
             </content-card>
 
@@ -57,15 +64,19 @@
                 <h3>grupo caliente, cdmx, mexico</h3>
                 <h4>july - august 2023</h4>
                 <ul>
-                    <li>collaborated with various development teams including back end, front end, app dev, and web dev for major betting websites www.caliente.mx and winner.mx.</li>
-                    <li>managed and updated banners/promotional images in both gambling websites, ensured no bugs or errors present in test websites before pushing and changing the live sites.</li>
+                    <li>collaborated with various development teams including back end, front end, app dev, and web dev
+                        for major betting websites www.caliente.mx and winner.mx.</li>
+                    <li>managed and updated banners/promotional images in both gambling websites, ensured no bugs or
+                        errors present in test websites before pushing and changing the live sites.</li>
                     <li>ensured overall quality of new features and enhancements across desktop and mobile.</li>
-                    <li>gained understanding of agile workflows and cross-functional collaboration at a fast-paced software company.</li>
-                    <li>learned how sprints and projects work in a software company to maximize productivity and prioritize fixes for bugs that emerge.</li>
+                    <li>gained understanding of agile workflows and cross-functional collaboration at a fast-paced
+                        software company.</li>
+                    <li>learned how sprints and projects work in a software company to maximize productivity and
+                        prioritize fixes for bugs that emerge.</li>
                 </ul>
             </content-card>
         </section>
-        
+
         <section>
             <h1 id="addExp">additionalExperiences</h1>
             <content-card>
@@ -73,9 +84,13 @@
                 <h3>ucsd computer store</h3>
                 <h4>may 2022 - present</h4>
                 <ul>
-                    <li>provide personalized assistance and guidance to customers, creating a positive shopping experience through effective communication and building rapport.</li>
-                    <li>play a pivotal role in achieving sales targets, promoting apple products, handling transactions, and keeping an organized and efficient workspace.</li>
-                    <li>responsible for the critical tasks of opening and closing procedures, alongside providing support in comprehensive training to new hires, ensuring smooth integration into our operational protocols at the school bookstore.</li>
+                    <li>provide personalized assistance and guidance to customers, creating a positive shopping
+                        experience through effective communication and building rapport.</li>
+                    <li>play a pivotal role in achieving sales targets, promoting apple products, handling transactions,
+                        and keeping an organized and efficient workspace.</li>
+                    <li>responsible for the critical tasks of opening and closing procedures, alongside providing
+                        support in comprehensive training to new hires, ensuring smooth integration into our operational
+                        protocols at the school bookstore.</li>
                 </ul>
             </content-card>
         </section>
@@ -85,4 +100,5 @@
         <p>© 2025 pedro serdio</p>
     </footer>
 </body>
+
 </html>

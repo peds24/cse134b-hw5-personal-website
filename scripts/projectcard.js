@@ -1,15 +1,18 @@
 class ProjectCard extends HTMLElement {
     constructor() {
         super();
-        this.shadow = this.attachShadow({mode: 'open'})
+        this.attachShadow({ mode: 'open' });
     }
 
-    connectedCallback(){
-        this.render();
-    }
-
-    render() {
-        this.shadow.innerHTML = `
+    connectedCallback() {
+        const title = this.getAttribute('title') || 'Project Title';
+        const defaultImage = this.getAttribute('imageLarge') || '';
+        const altImage = this.getAttribute('imageSmall') || '';
+        const languages = this.getAttribute('languages') || 'coding language';
+        const description = this.getAttribute('description') || 'Short description of the project.';
+        const link = this.getAttribute('link') || '';
+        const linkText = this.getAttribute('linkText')
+        this.shadowRoot.innerHTML = `
         <style>
         .project-card {
             display: flex;
@@ -144,40 +147,69 @@ class ProjectCard extends HTMLElement {
 
     <div class="project-card">
         <picture>
-            <source srcset="/images/webLang.png" media="(max-width: 600px)">
-            <img src="/images/webscribe.png" alt="Image of WebScribe Interface">
+            <source srcset="${altImage}" media="(max-width: 600px)">
+            <img src="${defaultImage}" alt="Image of ${title}">
         </picture>
         <div class="text">
-            <h2 class="title">WebScribe (WebApp developer Journal)</h2>
-            <h4 class="languages"><em>HTML, CSS, JS</em></h4>
-            <p class="description">
-            A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations. The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach notably uses background-only color tagging to achieve its distinctive look. The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.
-            </p>
-            <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">Link to GitHub Repo</a>
+            <h2 class="title">${title}</h2>
+            <h4 class="languages"><em>${languages}</em></h4>
+            <p class="description">${description}</p>
+            <a href="${link}">${linkText}</a>
         </div>
     </div>
     `
     }
-    /* set data({ title, image, languages, description, link }) {
-        this.shadowRoot.querySelector(".title").textContent = title;
-        const img = this.shadowRoot.querySelector("img");
-        img.src = image;
-        img.alt = `Image for ${title}`;s
-        this.shadowRoot.querySelector(".languages").textContent = languages;
-        this.shadowRoot.querySelector(".description").textContent = description;
-        const repoLink = this.shadowRoot.querySelector("a");
-
-        if (repoLink){
-            repoLink.href = link;
-            repoLink.textContent = "More information is here at the repo link";
-        } else if (repoLink == "private"){
-            repoLink.textContent = "Repo is private, but can be shared upon request.";
-        } else {
-            repoLink.textContent = "No repository link available.";
-        }
-        
-      } */
 }
 
 customElements.define('project-card', ProjectCard);
 
+document.addEventListener("DOMContentLoaded", () => {
+    const cardContainer = document.getElementById("card-container");
+    const loadLocalButton = document.getElementById("load-local");
+
+    async function fetchAndSaveProjects() {
+        try {
+            const response = await fetch("./data/projects.json"); // Replace with the path to your JSON file
+            const projects = await response.json();
+            localStorage.setItem("projects", JSON.stringify(projects));
+            console.log("Projects saved to localStorage.");
+        } catch (error) {
+            console.error("Failed to fetch and save projects:", error);
+        }
+
+        const localProjects = JSON.parse(localStorage.getItem('projects'));
+        localProjects.forEach(project => {
+            const card = document.createElement('project-card');
+            card.setAttribute('title', project.title);
+            card.setAttribute('imageLarge', project.imageLarge);
+            card.setAttribute('imageSmall', project.imageSmall);
+
+            card.setAttribute('description', project.description);
+            card.setAttribute('languages', project.languages);
+            card.setAttribute('link', project.link)
+            
+            if (project.link == "private"){
+                card.setAttribute('linkText', "Repo is private, but can be shared upon request.")
+            } else if (project.link == ""){
+                card.setAttribute('linkText', "")
+            } else{
+                card.setAttribute('linkText', "Project repo linked here.")
+            }
+            
+        
+            cardContainer.appendChild(card);
+        });
+    }
+
+
+    // Add event listener for the button
+    loadLocalButton.addEventListener("click", fetchAndSaveProjects);
+
+    const clearStorageButton = document.getElementById("clear-storage");
+
+    clearStorageButton.addEventListener("click", () => {
+        localStorage.removeItem('projects');
+        console.log("Local storage cleared.");
+        cardContainer.innerHTML = ''; // Clear the displayed cards
+    });
+});
