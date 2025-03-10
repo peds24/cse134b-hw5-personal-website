@@ -47,8 +47,7 @@ class ProjectCard extends HTMLElement {
         .project-card .title {
             margin: 0;
             font-weight: 700;
-            font-size: 32px;
-            letter-spacing: 0;
+            font-size: 2rem;
             line-height: normal;
         }
         .project-card .langauges {
@@ -56,7 +55,7 @@ class ProjectCard extends HTMLElement {
             font-weight: 700;
             font-style: italic;
             color: var(--primary-color);
-            font-size: 16px;
+            font-size: 1rem;
             letter-spacing: 0;
             line-height: normal;
             white-space: nowrap;
@@ -64,7 +63,7 @@ class ProjectCard extends HTMLElement {
         .project-card .description{
             margin: 0;
             font-weight: 400;
-            font-size: 13px;
+            font-size: 1rem;
             letter-spacing: 0;
             line-height: normal;
         }
