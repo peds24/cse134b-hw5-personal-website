@@ -13,24 +13,24 @@ class ProjectCard extends HTMLElement {
         <style>
         .project-card {
             display: flex;
-            align-items: center;
             gap: 10px;
-            padding: 0px 0px 0px 14px;
-            background-color: #ffffff;
-            width: 1000px;
-            height: 400px;
+            padding: 14px 14px;
+            width: fit-content;
+            height: fit-content;
 
-            border: #000000 solid;
+            border: var(--primary-color) solid;
             border-radius: 25px;
+            align-items: center;
         }
         .project-card picture {
             position: relative;
-            width: 350px;
-            height: 350px;
-            background-color: #3f2d2d;
+            width: 250px;
+            height: 250px;
             border-radius: 25px;
             display: flex;
             align-items: center;
+            background-color: color-mix(in srgb, var(--primary-color), transparent 80%);
+            border: solid var(--primary-color);
         }
         .project-card img {
             width: 100%;
@@ -40,26 +40,22 @@ class ProjectCard extends HTMLElement {
             display: flex;
             flex-direction: column;
             width: 612px;
-            height: 350px;
-            align-items: flex-start;
+            height: auto;
+            align-self: flex-start;
             gap: 5px;
-            background-color: #ffffff;
         }
         .project-card .title {
             margin: 0;
-            font-family: "Inter-Bold", Helvetica;
             font-weight: 700;
-            color: #000000;
             font-size: 32px;
             letter-spacing: 0;
             line-height: normal;
         }
         .project-card .langauges {
             margin: 0;
-            font-family: "Inter-BoldItalic", Helvetica;
             font-weight: 700;
             font-style: italic;
-            color: #000000;
+            color: var(--primary-color);
             font-size: 16px;
             letter-spacing: 0;
             line-height: normal;
@@ -67,12 +63,52 @@ class ProjectCard extends HTMLElement {
         }
         .project-card .description{
             margin: 0;
-            font-family: "Inter-Regular", Helvetica;
             font-weight: 400;
-            color: #000000;
             font-size: 13px;
             letter-spacing: 0;
             line-height: normal;
+        }
+
+        @media (max-width: 834px) {
+            .project-card{
+                display: flex;
+                flex-direction: column;
+            }
+            .project-card picture {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                border-radius: 25px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .project-card .text {
+                display: flex;
+                flex-direction: column;
+                width: 389px;
+                gap: 5px;
+            }
+            
+            a {
+                align-self: center;
+            }
+        }
+        
+        @media (max-width: 1195px) and (min-width: 835px) {
+            .project-card picture {
+                width: 200px;
+                height: 200px;
+                border-radius: 25px;
+                display: flex;
+            }
+            
+            .project-card .text {
+                display: flex;
+                flex-direction: column;
+                width: 538px;
+                height: auto;
+            }
         }
 
     </style>

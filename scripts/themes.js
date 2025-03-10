@@ -29,11 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    const savedPreBg = localStorage.getItem('pre-color-bg');
-    if (savedPreBg) {
-        document.documentElement.style.setProperty('--pre-background', savedPreBg);
-    }
-
     const textColor = localStorage.getItem('text-color');
     if (textColor) {
         document.documentElement.style.setProperty('--text-color', textColor);
@@ -45,11 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const light_bg = '#CCCCCC';
             let light_accent = 'blue';
             const light_text = '#000';
-            const light_preColor = '#B1B1B1';
     
             document.documentElement.style.setProperty('--bg-color', light_bg);
             document.documentElement.style.setProperty('--text-color', light_text);
-            document.documentElement.style.setProperty('--pre-background', light_preColor);
     
            if (localStorage.getItem('custom-color') != null){
                 light_accent = localStorage.getItem('custom-color');
@@ -62,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
             localStorage.setItem('theme', light_bg);
             localStorage.setItem('text-color', light_text);
-            localStorage.setItem('pre-color-bg', light_preColor);
             localStorage.setItem('light-accent', light_accent);
         });
     }
@@ -73,11 +65,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const dark_bg = '#000';
             let dark_accent = 'orange';
             const dark_text = '#FFF';
-            const dark_preColor = '#000';
     
             document.documentElement.style.setProperty('--bg-color', dark_bg);
             document.documentElement.style.setProperty('--text-color', dark_text);
-            document.documentElement.style.setProperty('--pre-background', dark_preColor);
     
             if (localStorage.getItem('custom-color') != null){
                 dark_accent = localStorage.getItem('custom-color');
@@ -90,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
             localStorage.setItem('theme', dark_bg);
             localStorage.setItem('text-color', dark_text);
-            localStorage.setItem('pre-color-bg', dark_preColor);
             localStorage.setItem('dark-accent', dark_accent);
         });
     }
@@ -126,32 +115,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 const dark_bg = '#000';
                 let dark_accent = 'orange';
                 const dark_text = '#FFF';
-                const dark_preColor = '#000';
                 
                 document.documentElement.style.setProperty('--bg-color', dark_bg);
                 document.documentElement.style.setProperty('--text-color', dark_text);
-                document.documentElement.style.setProperty('--pre-background', dark_preColor);
                 document.documentElement.style.setProperty('--primary-color', dark_accent);
 
                 localStorage.setItem('theme', dark_bg);
                 localStorage.setItem('text-color', dark_text);
-                localStorage.setItem('pre-color-bg', dark_preColor);
                 localStorage.setItem('dark-accent', dark_accent);
             }
             else {
                 const light_bg = '#CCCCCC';
                 let light_accent = 'blue';
                 const light_text = '#000';
-                const light_preColor = '#B1B1B1';
                 
                 document.documentElement.style.setProperty('--bg-color', light_bg);
                 document.documentElement.style.setProperty('--text-color', light_text);
-                document.documentElement.style.setProperty('--pre-background', light_preColor);
                 document.documentElement.style.setProperty('--primary-color', light_accent);
 
                 localStorage.setItem('theme', light_bg);
                 localStorage.setItem('text-color', light_text);
-                localStorage.setItem('pre-color-bg', light_preColor);
                 localStorage.setItem('light-accent', light_accent);
             }
             localStorage.removeItem('custom-color')

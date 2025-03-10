@@ -120,7 +120,7 @@ main{
     font-size: 8px; 
     color: var(--primary-color);
     margin-bottom: 1rem;
-    background-color: var(--pre-background);
+    background-color: color-mix(in srgb, var(--primary-color), transparent 80%);;
 }
 
 #quote {
@@ -150,6 +150,7 @@ main{
     cursor: pointer;
     color: var(--primary-color);
     transition: color var(--transition-duration, 0.3s);
+    fill: color-mix(in srgb, var(--primary-color), transparent 80%);
 }
 
 #sun:hover, #moon:hover, #color-picker:hover {
