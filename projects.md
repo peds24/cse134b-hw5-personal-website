@@ -12,16 +12,7 @@
 <h2>Compress/Uncompress a File</h2>
 <h3>C++</h3>
 <ul>
-    <li>A C++ compression tool that uses Huffman encoding to compress and decompress text files.</li>
-    <li>The project consists of two main components:
-  <ol>
-      <li>A compression program that creates encoded files with optimized character representation.</li>
-      <li>A decompression program that reconstructs the original text.</li>
-  </ol>
-    </li>
-    <li>The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression.</li>
-    <li>Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing.</li>
-    <li>The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</li>
+    <p>A C++ compression tool that uses Huffman encoding to compress and decompress text files. The project consists of two main components: a compression program that creates encoded files with optimized character representation, and a decompression program that reconstructs the original text. The system uses a header file containing character frequency data (stored as 256 integers) to rebuild the Huffman tree during decompression. Future plans include optimizing the header file format by storing the Huffman tree structure more efficiently using array indexing. The project demonstrates practical applications of data compression algorithms and has sparked interest in encryption and data security.</p>
 </ul>
 <a href="">Repo is private, but can be shared upon request.</a>
 
@@ -29,16 +20,6 @@
 <h2>Graph Project</h2>
 <h3>C++</h3>
 <ul>
-    <li>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD.</li>
-    <li>The project uses a map data structure to represent undirected graphs.</li>
-    <li>Includes several key algorithmic features:
-  <ul>
-      <li>Basic graph operations</li>
-      <li>Dijkstra's algorithm for weighted shortest paths</li>
-      <li>Modified BFS for unweighted shortest paths</li>
-      <li>Disjoint Set implementation for finding connected components with threshold constraints</li>
-  </ul>
-    </li>
-    <li>The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications.</li>
+    <p>A C++ implementation of a custom graph class developed for an advanced data structures course at UCSD, using a map data structure to represent undirected graphs. It includes basic graph operations, Dijkstra's algorithm for weighted shortest paths, a modified BFS for unweighted shortest paths, and a Disjoint Set implementation for finding connected components with threshold constraints. The implementation focuses on runtime efficiency and practical usability while adhering to given API specifications.</p>
 </ul>
 <a href="">Repo is private, but can be shared upon request.</a>

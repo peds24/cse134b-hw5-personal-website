@@ -13,7 +13,7 @@ class ProjectCard extends HTMLElement {
         <style>
         .project-card {
             display: flex;
-            gap: 10px;
+            gap: 1rem;
             padding: 14px 14px;
             width: fit-content;
             height: fit-content;
@@ -21,6 +21,7 @@ class ProjectCard extends HTMLElement {
             border: var(--primary-color) solid;
             border-radius: 25px;
             align-items: center;
+            margin-top: 1rem; /* Remove this when adding manually */
         }
         .project-card picture {
             position: relative;
@@ -50,7 +51,7 @@ class ProjectCard extends HTMLElement {
             font-size: 2rem;
             line-height: normal;
         }
-        .project-card .langauges {
+        .project-card .languages {
             margin: 0;
             font-weight: 700;
             font-style: italic;
@@ -67,8 +68,37 @@ class ProjectCard extends HTMLElement {
             letter-spacing: 0;
             line-height: normal;
         }
+        
+        a {
+            color: var(--primary-color);
+             transition: color var(--transition-duration) var(--transition-ease);
+        }
+
+        a:visited {
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            color: var(--hover-color);
+        }
+
+        a[href=""] {
+            color: var(--primary-color);
+            pointer-events: none;
+            cursor: default;
+        }
 
         @media (max-width: 834px) {
+            header nav {
+                flex-direction: column;
+                font-size: 0.75rem;
+                gap: 1rem;
+            }
+
+            h1{
+                font-size: 2rem;
+            }
+
             .project-card{
                 display: flex;
                 flex-direction: column;
@@ -81,19 +111,19 @@ class ProjectCard extends HTMLElement {
                 display: flex;
                 align-items: center;
             }
-            
+
             .project-card .text {
                 display: flex;
                 flex-direction: column;
                 width: 389px;
                 gap: 5px;
             }
-            
+
             a {
                 align-self: center;
             }
         }
-        
+
         @media (max-width: 1195px) and (min-width: 835px) {
             .project-card picture {
                 width: 200px;
@@ -101,7 +131,7 @@ class ProjectCard extends HTMLElement {
                 border-radius: 25px;
                 display: flex;
             }
-            
+
             .project-card .text {
                 display: flex;
                 flex-direction: column;
@@ -114,32 +144,25 @@ class ProjectCard extends HTMLElement {
 
     <div class="project-card">
         <picture>
-            <img src="/images/graphProj.png" alt="">
+            <source srcset="/images/webLang.png" media="(max-width: 600px)">
+            <img src="/images/webscribe.png" alt="Image of WebScribe Interface">
         </picture>
         <div class="text">
-            <h2 class="title">Project Name</h2>
-            <h4 class="langauges"><em>langauges used</em></h4>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse tristique leo sit amet enim venenatis, non lobortis sem euismod.
-                Vivamus dignissim lectus quis purus pharetra, eget cursus nulla lacinia.
-                Maecenas sed leo lacinia, condimentum ante ac, congue sem.
-                Donec vehicula diam ac purus imperdiet, quis ornare est porttitor.
-                Nam fringilla nunc auctor iaculis finibus.
-                Pellentesque suscipit massa in nisl aliquet, id vulputate ligula consectetur.
-                Mauris imperdiet massa nec nunc porta, id convallis sem tincidunt.
-                Morbi at risus sed ante scelerisque fermentum ac ut lacus.
-                Aliquam quis purus scelerisque, consequat dolor quis, feugiat tortor.
+            <h2 class="title">WebScribe (WebApp developer Journal)</h2>
+            <h4 class="languages"><em>HTML, CSS, JS</em></h4>
+            <p class="description">
+            A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. The development process progressed from basic sketches to detailed Figma designs, including custom icons and animations. The final product features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach notably uses background-only color tagging to achieve its distinctive look. The project drew inspiration from apps like Obsidian, Fantastical, and TickTick, and was documented through a demonstration video.
             </p>
-            <a href="">link</a>
+            <a href="https://github.com/cse110-sp24-group17/cse110-sp24-group17">Link to GitHub Repo</a>
         </div>
     </div>
     `
     }
-    set data({ title, image, languages, description, link }) {
+    /* set data({ title, image, languages, description, link }) {
         this.shadowRoot.querySelector(".title").textContent = title;
         const img = this.shadowRoot.querySelector("img");
         img.src = image;
-        img.alt = `Image for ${title}`;
+        img.alt = `Image for ${title}`;s
         this.shadowRoot.querySelector(".languages").textContent = languages;
         this.shadowRoot.querySelector(".description").textContent = description;
         const repoLink = this.shadowRoot.querySelector("a");
@@ -153,7 +176,7 @@ class ProjectCard extends HTMLElement {
             repoLink.textContent = "No repository link available.";
         }
         
-      }
+      } */
 }
 
 customElements.define('project-card', ProjectCard);

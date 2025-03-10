@@ -6,15 +6,12 @@
 
 body {
     background-color: var(--bg-color);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center; 
-    justify-content: center;
-    gap: 10px;
     color: var(--text-color);
     font-family: var(--font-family-primary, var(--font-family-fallback));
     font-size: var(--font-size-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -30,12 +27,19 @@ a:hover {
     color: var(--hover-color);
 }
 
+a[href=""] {
+    color: var(--primary-color);
+    pointer-events: none;
+    cursor: default;
+}
+
 header{
     width: 100%;
     padding: 1rem 0;
     text-align: center;
     top: 0;
     z-index: 1;
+    align-self: center;
 }
 
 header nav{
@@ -48,10 +52,26 @@ header nav a {
     font-size: 1.5rem;
 }
 
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center; 
+    justify-content: center;
+    gap: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
 footer{
     text-align: center;
     margin-top: 1rem;
     padding: 1rem;
-    width: 95%;
+    width: 100%;
     color: var(--text-color);
 }
