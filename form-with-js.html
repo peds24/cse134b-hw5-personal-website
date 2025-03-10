@@ -30,7 +30,10 @@
             <script>
                 // Check if JavaScript is enabled
                 if (typeof(Storage) !== "undefined") {
-                    document.getElementById("dynamicLink").style.display = "inline";
+                    var dynamicLinks = document.querySelectorAll("#dynamicLink");
+                    dynamicLinks.forEach(function(link) {
+                        link.style.display = "inline";
+                    });
                 }
             </script>
         </nav>

@@ -1,0 +1,26 @@
+[
+    {
+        "title": "WebScribe",
+        "imageLarge": "images/webLang.png",
+        "imageSmall": "/images/webscribe.png",
+        "language": "HTML, CSS, JS",
+        "description": "A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. Features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach uses background-only color tagging for a distinctive look, inspired by apps like Obsidian, Fantastical, and TickTick.",
+        "link": "https://github.com/cse110-sp24-group17/cse110-sp24-group17"
+    },
+    {
+        "title": "Compress/Uncompress a File",
+        "imageLarge": "/images/encoding.jpg",
+        "imageSmall": "/images/C.png",
+        "language": "C++",
+        "description": "A C++ tool utilizing Huffman encoding for text file compression and decompression. Includes a compression program for optimized character representation and a decompression program that reconstructs the original text. Features a header file for character frequency data and plans to optimize header format using array indexing for efficient storage.",
+        "link": "private"
+    },
+    {
+        "title": "Graph Project",
+        "imageLarge": "/images/graphProj.png",
+        "imageSmall": "/images/C.png",
+        "language": "C++",
+        "description": "A custom C++ graph class developed for an advanced data structures course at UCSD. Implements Dijkstra's algorithm, a modified BFS for shortest paths, and a Disjoint Set for connected components with threshold constraints. Focused on runtime efficiency and adherence to API specifications.",
+        "link": "private"
+    }
+]

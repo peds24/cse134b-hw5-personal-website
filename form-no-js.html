@@ -11,22 +11,27 @@
 <body>
     <header>
         <nav>
-          <a href="/">home</a>
-          <a href="/work-exp.html">work-exp</a>
-        <noscript>
-            <a href="/projects.html">projects</a>
-        </noscript>
-        
-        <!-- Link with default display of 'none' when JS is disabled -->
-        <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
-        
-        <script>
-            // Check if JavaScript is enabled
-            if (typeof(Storage) !== "undefined") {
-                document.getElementById("dynamicLink").style.display = "inline";
-            }
-        </script>
-          <a href="/form-no-js.html">contact-me</a>
+            <a href="/">home</a>
+            <a href="/work-exp.html">work-exp</a>
+
+            <noscript>
+                <a href="/projects.html">projects</a>
+                <a href="/form-no-js.html">contact-me</a>
+            </noscript>
+            
+            <!-- Link with default display of 'none' when JS is disabled -->
+            <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
+            <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
+            
+            <script>
+                // Check if JavaScript is enabled
+                if (typeof(Storage) !== "undefined") {
+                    var dynamicLinks = document.querySelectorAll("#dynamicLink");
+                    dynamicLinks.forEach(function(link) {
+                        link.style.display = "inline";
+                    });
+                }
+            </script>
         </nav>
     </header>
     <main>

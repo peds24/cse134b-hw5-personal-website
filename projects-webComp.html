@@ -13,33 +13,43 @@
     <title>projects</title>
 </head>
 <body>
-    <nav>
-        <a href="/">home</a>
-        <a href="/work-exp.html">work-exp</a>
+    <header>
+        <nav>
+            <a href="/">home</a>
+            <a href="/work-exp.html">work-exp</a>
 
-        <noscript>
-            <a href="/projects.html">projects</a>
-            <a href="/form-no-js.html">contact-me</a>
-        </noscript>
-        
-        <!-- Link with default display of 'none' when JS is disabled -->
-        <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
-        <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
-        
-        <script>
-            // Check if JavaScript is enabled
-            if (typeof(Storage) !== "undefined") {
-                document.getElementById("dynamicLink").style.display = "inline";
-            }
-        </script>
-    </nav>
+            <noscript>
+                <a href="/projects.html">projects</a>
+                <a href="/form-no-js.html">contact-me</a>
+            </noscript>
+
+            <!-- Link with default display of 'none' when JS is disabled -->
+            <a id="dynamicLink" href="/projects-webComp.html" style="display: none;">projects</a>
+            <a id="dynamicLink" href="/form-with-js.html" style="display: none;" >contact-me</a>
+
+            <script>
+                // Check if JavaScript is enabled
+                if (typeof(Storage) !== "undefined") {
+                        var dynamicLinks = document.querySelectorAll("#dynamicLink");
+                        dynamicLinks.forEach(function(link) {
+                            link.style.display = "inline";
+                        });
+                    }
+            </script>
+        </nav>
     </header>
     <h1>projects</h1>
     <main>
         <project-card></project-card>
     </main>
+
+    <div id="button-container">
+        <button id="load-local"> <span class="invert-text">Load Local</span></button>
+        <button id="load-remote"> <span class="invert-text">Load Remote</span></button>
+    </div>
     <footer>
-      <p>© 2025 Pedro Serdio</p>
+        
+        <p>© 2025 Pedro Serdio</p>
     </footer>
 
 </body>

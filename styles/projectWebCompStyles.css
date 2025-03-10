@@ -70,8 +70,36 @@ h1 {
 
 footer{
     text-align: center;
-    margin-top: 1rem;
     padding: 1rem;
     width: 100%;
     color: var(--text-color);
+}
+
+#button-container{
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.invert-text {
+    color: var(--text-color);
+    filter: invert(1); /* Invert only the text color */
+    display: inline-block; /* Ensure it only affects the text */
+}
+
+#load-local, #load-remote{
+    cursor: pointer;
+    padding:5px;
+    font-family: var(--font-family-primary), var(--font-family-fallback);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    transition: var(--transition-duration);
+    background-color: var(--primary-color);
+}
+
+#load-local:hover, #load-remote:hover{
+    background-color: var(--hover-color);
+    color: invert(var(--text-color));
+    cursor: pointer;
 }
