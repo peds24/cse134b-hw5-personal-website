@@ -166,13 +166,13 @@ main{
     border-radius: 5px;
     transition: var(--transition-duration);
     color: var(--text-color);
-    background-color: var(--primary-color);
+    background-color: color-mix(in srgb, var(--primary-color), transparent 80%);
     
 }
 
 #reset:hover{
     background-color: var(--hover-color);
-    color: invert(var(--text-color));
+    color: black;
     cursor: pointer;
 }
 
