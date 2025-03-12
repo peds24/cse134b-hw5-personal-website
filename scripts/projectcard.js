@@ -86,7 +86,7 @@ class ProjectCard extends HTMLElement {
             cursor: default;
         }
 
-        @media (max-width: 879px) {
+        @media (max-width: 767px) {
             .card-elem{
                 display: flex;
                 flex-direction: column;
@@ -119,7 +119,7 @@ class ProjectCard extends HTMLElement {
             }
         }
 
-        @media (max-width: 1195px) and (min-width: 880px) {
+        @media (max-width: 1195px) and (min-width: 768px) {
             .card-elem{
                 display: flex;
                 flex-direction: row;
