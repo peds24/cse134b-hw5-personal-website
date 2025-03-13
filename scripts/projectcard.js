@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const addRemoteButton = document.getElementById("add-remote");
+    const addRemoteButton = document.getElementById("load-remote");
 
     addRemoteButton.addEventListener("click", async () => {
         try {
