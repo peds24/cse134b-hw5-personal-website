@@ -205,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearStorageButton = document.getElementById("clear-storage");
     clearStorageButton.addEventListener("click", () => {
         localStorage.removeItem('local_projects');
+        localStorage.removeItem('remote_projects')
         console.log("Local storage cleared.");
         cardContainer.innerHTML = ''; // Clear the displayed cards
     });
