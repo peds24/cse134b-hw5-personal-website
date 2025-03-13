@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadLocalButton = document.getElementById("load-local");
 
     function loadProjectsFromLocalStorage() {
-        const localProjects = JSON.parse(localStorage.getItem('projects'));
+        const localProjects = JSON.parse(localStorage.getItem('local_projects'));
         if (localProjects) {
             localProjects.forEach(project => {
                 const card = document.createElement('project-card');
@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.setAttribute('description', project.description);
                 card.setAttribute('languages', project.languages);
                 card.setAttribute('link', project.link);
-                
+
                 if (project.link === "private") {
                     card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
                 } else if (project.link === "") {
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     card.setAttribute('linkText', "Project repo linked here.");
                 }
-            
+
                 cardContainer.appendChild(card);
             });
         }
@@ -186,11 +186,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function fetchAndSaveProjects() {
         try {
-            const response = await fetch("./data/projects.json"); 
-            const projects = await response.json();
-            localStorage.setItem("projects", JSON.stringify(projects));
+            const response = await fetch("./data/projects.json");
+            const local_projects = await response.json();
+            localStorage.setItem("local_projects", JSON.stringify(local_projects));
             console.log("Projects saved to localStorage.");
-            loadProjectsFromLocalStorage(); 
+            loadProjectsFromLocalStorage();
         } catch (error) {
             console.error("Failed to fetch and save projects:", error);
         }
@@ -203,9 +203,8 @@ document.addEventListener("DOMContentLoaded", () => {
     loadLocalButton.addEventListener("click", fetchAndSaveProjects);
 
     const clearStorageButton = document.getElementById("clear-storage");
-
     clearStorageButton.addEventListener("click", () => {
-        localStorage.removeItem('projects');
+        localStorage.removeItem('local_projects');
         console.log("Local storage cleared.");
         cardContainer.innerHTML = ''; // Clear the displayed cards
     });
@@ -213,16 +212,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const addRemoteButton = document.getElementById("load-remote");
+    const loadRemoteButton = document.getElementById("load-remote");
 
-    addRemoteButton.addEventListener("click", async () => {
+    //const API_URL = "https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website";
+
+    const API_URL = "https://pedro-serdio.netlify.app/db.json";
+
+
+    loadRemoteButton.addEventListener("click", async () => {
+
         try {
-            const response = await fetch("https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website");
-            const remoteProjects = await response.json();
-            console.log("Remote projects fetched:", remoteProjects);
-            localStorage.setItem("remoteProjects", JSON.stringify(remoteProjects));
+            const response = await fetch(API_URL);
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+
+            const remote_projects = await response.json();
+            localStorage.setItem("remote_projects", JSON.stringify(remote_projects));
+            
         } catch (error) {
-            console.error("Failed to fetch remote projects:", error);
+            console.error(`Failed to fetch data: ${error.message}`);
         }
     });
+    // addRemoteButton.addEventListener("click", async () => {
+    //     try {
+    //         const response = await fetch("https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website");
+    //         const remoteProjects = await response.json();
+    //         console.log("Remote projects fetched:", remoteProjects);
+    //         localStorage.setItem("remoteProjects", JSON.stringify(remoteProjects));
+    //     } catch (error) {
+    //         console.error("Failed to fetch remote projects:", error);
+    //     }
+    // });
 });
