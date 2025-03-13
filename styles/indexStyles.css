@@ -35,14 +35,14 @@ h2 {
 }
 
 footer {
-    margin-top: 1rem;
-    width: 95%;
-
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 footer p {
     color: var(--text-color);
-    margin-bottom: 0.5rem;
     transition: transform 1s ease-in-out;
     transform-origin: left;
 }
@@ -294,18 +294,6 @@ input:checked+.slider:before {
         flex-direction: column;
         align-items: center;
     }
-
-    #sun {
-        width: 35px;
-        height: 35px;
-    }
-
-    #moon,
-    #color-picker {
-        width: 30px;
-        height: 30px;
-    }
-
 }
 
 @media (min-width: 601px) and (max-width: 799px) {
