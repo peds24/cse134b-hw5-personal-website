@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //const API_URL = "https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website";
 
-    const API_URL = "https://pedro-serdio.netlify.app/db.json";
+    const API_URL = "https://pedro-serdio.netlify.app/public/db.json";
 
 
     loadRemoteButton.addEventListener("click", async () => {
