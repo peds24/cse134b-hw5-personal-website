@@ -1,5 +1,13 @@
 [
     {
+        "title": "Personal Portfolio Website",
+        "imageLarge": "/images/portfolioWeb.png",
+        "imageSmall": "/images/webLang.png",
+        "languages": "HTML, CSS, JS",
+        "description": "A personal portfolio website showcasing my projects, work experience, and contact information. The website features a responsive design, interactive elements, and a functional contact form. Built using HTML, CSS, and JavaScript to provide a seamless user experience.",
+        "link": "https://github.com/peds24/cse134b-hw5-personal-website"
+    },
+    {
         "title": "WebScribe",
         "imageLarge": "/images/webscribe.png",
         "imageSmall": "/images/webLang.png",

@@ -2,7 +2,7 @@ https://pedro-serdio.netlify.app/
 
 ### Biggest Improvements to Site
 *Summary:*
-I made several significant changes to the site to enhance the overall user experience, improve performance, and ensure a responsive design. Firstly, I replaced the theme switcher with a toggle switch instead of two separate buttons, making it more intuitive and reducing clutter. Secondly, I added dynamic JavaScript linking for pages that require JavaScript and those that do not, optimizing page load times and enhancing performance. Lastly, I finalized and cleaned up the media queries for three device sizes (phone, tablet, computer), ensuring a consistent and responsive design across different devices.
+This project incorporates several updates aimed at improving usability, accessibility, and functionality. The theme switcher was revamped with a toggle/sliding switch to provide a clearer indication of the active theme (light/dark), and custom accent colors were simplified to reduce cognitive load. To enhance accessibility, default page elements, such as a no-JS contact form and project section, were added to ensure functionality even if JavaScript is disabled. Media queries were finalized for seamless responsiveness across three device types: phone, tablet, and desktop. Additionally, EmailJS integration was implemented in the contact form, enabling users to send messages directly to my email for faster responses. These changes prioritize a user-friendly and inclusive experience while maintaining efficient communication.
 
 1. Theme Switcher:
 - changed toggle from light to dark from two buttons into a toggle/sliding switch for clearer indication of active theme (light/dark)
@@ -13,3 +13,6 @@ I made several significant changes to the site to enhance the overall user exper
 
 3. Adjusted media queries
 - Finalized media queries for all pages that adapt properly two 3 device types: phone tablet and desktop.
+
+4. EmailJS integration
+- Integrated EmailJS into the contact form, allowing users to send their information directly to my email. This ensures that I receive messages promptly and can respond quickly.
