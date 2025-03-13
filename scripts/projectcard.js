@@ -158,106 +158,66 @@ customElements.define('project-card', ProjectCard);
 document.addEventListener("DOMContentLoaded", () => {
     const cardContainer = document.getElementById("card-container");
     const loadLocalButton = document.getElementById("load-local");
+    const loadRemoteButton = document.getElementById("load-remote");
+    const clearStorageButton = document.getElementById("clear-storage");
 
-    function loadProjectsFromLocalStorage() {
-        const localProjects = JSON.parse(localStorage.getItem('local_projects'));
-        if (localProjects) {
-            localProjects.forEach(project => {
-                const card = document.createElement('project-card');
-                card.setAttribute('title', project.title);
-                card.setAttribute('imageLarge', project.imageLarge);
-                card.setAttribute('imageSmall', project.imageSmall);
-                card.setAttribute('description', project.description);
-                card.setAttribute('languages', project.languages);
-                card.setAttribute('link', project.link);
+    function createProjectCard(project) {
+        const card = document.createElement('project-card');
+        card.setAttribute('title', project.title);
+        card.setAttribute('imageLarge', project.imageLarge);
+        card.setAttribute('imageSmall', project.imageSmall);
+        card.setAttribute('description', project.description);
+        card.setAttribute('languages', project.languages);
+        card.setAttribute('link', project.link);
 
-                if (project.link === "private") {
-                    card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
-                } else if (project.link === "") {
-                    card.setAttribute('linkText', "");
-                } else {
-                    card.setAttribute('linkText', "Project repo linked here.");
-                }
+        if (project.link === "private") {
+            card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
+        } else if (project.link === "") {
+            card.setAttribute('linkText', "");
+        } else {
+            card.setAttribute('linkText', "Project repo linked here.");
+        }
 
+        return card;
+    }
+
+    function loadProjectsFromStorage(storageKey) {
+        const projects = JSON.parse(localStorage.getItem(storageKey));
+        if (projects) {
+            projects.forEach(project => {
+                const card = createProjectCard(project);
                 cardContainer.appendChild(card);
             });
         }
     }
 
-    async function fetchAndSaveProjects() {
+    async function fetchAndSaveProjects(url, storageKey) {
         try {
-            const response = await fetch("./data/projects.json");
-            const local_projects = await response.json();
-            localStorage.setItem("local_projects", JSON.stringify(local_projects));
-            console.log("Projects saved to localStorage.");
-            loadProjectsFromLocalStorage();
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error: ${response.statusText}`);
+            }
+            const projects = await response.json();
+            localStorage.setItem(storageKey, JSON.stringify(projects));
+            console.log(`Projects saved to ${storageKey}.`);
+            loadProjectsFromStorage(storageKey);
         } catch (error) {
-            console.error("Failed to fetch and save projects:", error);
+            console.error(`Failed to fetch and save projects: ${error.message}`);
         }
     }
 
     // Load projects from localStorage on page load
-    loadProjectsFromLocalStorage();
+    loadProjectsFromStorage('local_projects');
+    loadProjectsFromStorage('remote_projects');
 
-    // Add event listener for the button
-    loadLocalButton.addEventListener("click", fetchAndSaveProjects);
+    // Add event listeners for the buttons
+    loadLocalButton.addEventListener("click", () => fetchAndSaveProjects("./data/projects.json", "local_projects"));
+    loadRemoteButton.addEventListener("click", () => fetchAndSaveProjects("https://pedro-serdio.netlify.app/public/db.json", "remote_projects"));
 
-    const clearStorageButton = document.getElementById("clear-storage");
     clearStorageButton.addEventListener("click", () => {
         localStorage.removeItem('local_projects');
-        localStorage.removeItem('remote_projects')
+        localStorage.removeItem('remote_projects');
         console.log("Local storage cleared.");
         cardContainer.innerHTML = ''; // Clear the displayed cards
-    });
-
-
-
-
-    const loadRemoteButton = document.getElementById("load-remote");
-
-    //const API_URL = "https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website";
-
-    const API_URL = "https://pedro-serdio.netlify.app/public/db.json";
-
-    function loadProjectsFromRemoteStorage() {
-        const remoteProjects = JSON.parse(localStorage.getItem('remote_projects'));
-        if (remoteProjects) {
-            remoteProjects.forEach(project => {
-                const card = document.createElement('project-card');
-                card.setAttribute('title', project.title);
-                card.setAttribute('imageLarge', project.imageLarge);
-                card.setAttribute('imageSmall', project.imageSmall);
-                card.setAttribute('description', project.description);
-                card.setAttribute('languages', project.languages);
-                card.setAttribute('link', project.link);
-
-                if (project.link === "private") {
-                    card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
-                } else if (project.link === "") {
-                    card.setAttribute('linkText', "");
-                } else {
-                    card.setAttribute('linkText', "Project repo linked here.");
-                }
-
-                cardContainer.appendChild(card);
-            });
-        }
-    }
-
-    loadRemoteButton.addEventListener("click", async () => {
-        try {
-            const response = await fetch(API_URL);
-
-            if (!response.ok) {
-                throw new Error(`Error: ${response.statusText}`);
-            }
-
-            const remote_projects = await response.json();
-            localStorage.setItem("remote_projects", JSON.stringify(remote_projects));
-            loadProjectsFromRemoteStorage();
-
-        } catch (error) {
-            console.error(`Failed to fetch data: ${error.message}`);
-        }
     });
 });
