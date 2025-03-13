@@ -8,3 +8,8 @@ I made several significant changes to the site to enhance the overall user exper
 - changed toggle from light to dark from two buttons into a toggle/sliding switch for clearer indication of active theme (light/dark)
 - Removed multiple accent colors per current theme. Decreases cognitiveload for user to set custom accent colors for each theme
 
+2. Dyanmic JavaScript options
+- Added page defaults that dont require javascript to be enabled such as the no-js contact form and the project section that does not include custom elements.
+
+3. Adjusted media queries
+- Finalized media queries for all pages that adapt properly two 3 device types: phone tablet and desktop.
