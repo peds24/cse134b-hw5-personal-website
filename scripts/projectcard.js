@@ -218,9 +218,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const API_URL = "https://pedro-serdio.netlify.app/public/db.json";
 
+    function loadProjectsFromRemoteStorage() {
+        const remoteProjects = JSON.parse(localStorage.getItem('remote_projects'));
+        if (remoteProjects) {
+            remoteProjects.forEach(project => {
+                const card = document.createElement('project-card');
+                card.setAttribute('title', project.title);
+                card.setAttribute('imageLarge', project.imageLarge);
+                card.setAttribute('imageSmall', project.imageSmall);
+                card.setAttribute('description', project.description);
+                card.setAttribute('languages', project.languages);
+                card.setAttribute('link', project.link);
+
+                if (project.link === "private") {
+                    card.setAttribute('linkText', "Repo is private, but can be shared upon request.");
+                } else if (project.link === "") {
+                    card.setAttribute('linkText', "");
+                } else {
+                    card.setAttribute('linkText', "Project repo linked here.");
+                }
+
+                cardContainer.appendChild(card);
+            });
+        }
+    }
 
     loadRemoteButton.addEventListener("click", async () => {
-
         try {
             const response = await fetch(API_URL);
 
@@ -230,19 +253,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const remote_projects = await response.json();
             localStorage.setItem("remote_projects", JSON.stringify(remote_projects));
-            
+            loadProjectsFromRemoteStorage();
+
         } catch (error) {
             console.error(`Failed to fetch data: ${error.message}`);
         }
     });
-    // addRemoteButton.addEventListener("click", async () => {
-    //     try {
-    //         const response = await fetch("https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website");
-    //         const remoteProjects = await response.json();
-    //         console.log("Remote projects fetched:", remoteProjects);
-    //         localStorage.setItem("remoteProjects", JSON.stringify(remoteProjects));
-    //     } catch (error) {
-    //         console.error("Failed to fetch remote projects:", error);
-    //     }
-    // });
 });
