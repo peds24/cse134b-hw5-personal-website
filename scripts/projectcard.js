@@ -209,4 +209,20 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Local storage cleared.");
         cardContainer.innerHTML = ''; // Clear the displayed cards
     });
+
+
+
+
+    const addRemoteButton = document.getElementById("add-remote");
+
+    addRemoteButton.addEventListener("click", async () => {
+        try {
+            const response = await fetch("https://my-json-server.typicode.com/peds24/cse134b-hw5-personal-website");
+            const remoteProjects = await response.json();
+            console.log("Remote projects fetched:", remoteProjects);
+            localStorage.setItem("remoteProjects", JSON.stringify(remoteProjects));
+        } catch (error) {
+            console.error("Failed to fetch remote projects:", error);
+        }
+    });
 });

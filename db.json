@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Example Project 1",
+        "imageLarge": "/images/sampleImage.png",
+        "imageSmall": "/images/samplecode.png",
+        "languages": "Python",
+        "description": "Description 1",
+        "link": ""
+    },
+    {
+        "title": "Example Project 2",
+        "imageLarge": "/images/sampleImage.png",
+        "imageSmall": "/images/samplecode.png",
+        "languages": "Java",
+        "description": "Description 2",
+        "link": ""
+    },
+    {
+        "title": "Example Project 3",
+        "imageLarge": "/images/sampleImage.png",
+        "imageSmall": "/images/samplecode.png",
+        "languages": "React",
+        "description": "Description 3",
+        "link": "https://github.com/example/tasktracker"
+    }
+]
