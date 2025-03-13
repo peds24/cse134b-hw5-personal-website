@@ -14,19 +14,6 @@ body {
     flex-direction: column;
 }
 
-a {
-    color: var(--primary-color);
-    transition: color var(--transition-duration) var(--transition-ease);
-}
-
-a:visited {
-    color: var(--primary-color);
-}
-
-a:hover {
-    color: var(--hover-color);
-}
-
 a[href=""] {
     color: var(--primary-color);
     pointer-events: none;

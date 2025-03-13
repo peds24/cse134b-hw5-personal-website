@@ -1,12 +1,23 @@
 :root {
-    --primary-color: orange;
-    --text-color: #fff;
-    --hover-color: #fff;
-    --bg-color: #000;
+    --primary-color: green;
+    --text-color: #000;
+    --hover-color: #fff;  /*add different hover */
+    --bg-color: #BDBDBD;
     --font-family-primary: 'IBM Plex Mono', monospace;
     --font-family-fallback: 'Courier New', Courier, monospace;
     --font-size-base: 1rem;
     --transition-duration: 0.3s;
-    --transition-ease: ease-in-out;
-    --inverted-textcolor: color-mix(in srgb, #fff, calc(100% - var(--textcolor)));
+    --transition-ease: ease-in-out;    
+
+}
+a {
+    color: var(--primary-color, green);
+}
+
+a:visited {
+    color: var(--primary-color, green);
+}
+
+a:hover {
+    filter: invert();
 }

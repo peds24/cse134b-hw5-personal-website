@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles/indexStyles.css">
     <link rel="stylesheet" href="styles/globalStyles.css">
 
-    <script src="/scripts/themes.js"></script>
+    <script src="/scripts/themeSwitcher.js"></script>
     <title>pedro serdio hank</title>
 </head>
 <body>
@@ -68,16 +68,25 @@
         </div>
 
         <div id="themeContainer">
-            <svg id="sun" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 7V2M41.5 23.5H46.5M38 12.5355L41.5355 9M10.5355 12.5355L7 9M41.5355 38.5355L38 35M7 40.5355L10.5355 37M2 24H7M24 46V41M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <div style="display: flex; flex-direction: row; align-items: center;gap: 1rem;">
+                <p id="switch-text">Dark Mode</p>
+                <label id="theme-switch">
+                    <input id="switch-status" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+
+            <!-- <svg id="sun" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 7V2M41.5 23.5H46.5M38 12.5355L41.5355 9M10.5355 12.5355L7 9M41.5355 38.5355L38 35M7 40.5355L10.5355 37M2 24H7M24 46V41M37 24C37 31.1797 31.1797 37 24 37C16.8203 37 11 31.1797 11 24C11 16.8203 16.8203 11 24 11C31.1797 11 37 16.8203 37 24Z" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             </svg>
             
             <svg id="moon" width="33" height="36" viewBox="0 0 33 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29 28.5C29.6109 28.5 30.2145 28.4667 30.8091 28.4018C27.7818 32.1251 23.1681 34.5 18 34.5C8.8873 34.5 1.5 27.1127 1.5 18C1.5 9.49854 7.92953 2.49877 16.1913 1.598C13.8844 4.43564 12.5 8.05717 12.5 12C12.5 21.1127 19.8873 28.5 29 28.5Z" stroke="currentColor" stroke-width="4"/>
-            </svg>
+                <path d="M29 28.5C29.6109 28.5 30.2145 28.4667 30.8091 28.4018C27.7818 32.1251 23.1681 34.5 18 34.5C8.8873 34.5 1.5 27.1127 1.5 18C1.5 9.49854 7.92953 2.49877 16.1913 1.598C13.8844 4.43564 12.5 8.05717 12.5 12C12.5 21.1127 19.8873 28.5 29 28.5Z" stroke="currentColor" stroke-width="3"/>
+            </svg> -->
 
             <svg id="color-picker" width="34" height="34" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M27.5 15C27.5 21.9036 21.9036 27.5 15 27.5C8.09644 27.5 2.5 21.9036 2.5 15C2.5 8.09644 8.09644 2.5 15 2.5C21.9036 2.5 27.5 8.09644 27.5 15Z" stroke="currentColor" stroke-width="5"/>
+                <path d="M27.5 15C27.5 21.9036 21.9036 27.5 15 27.5C8.09644 27.5 2.5 21.9036 2.5 15C2.5 8.09644 8.09644 2.5 15 2.5C21.9036 2.5 27.5 8.09644 27.5 15Z" stroke="currentColor" stroke-width="3"/>
             </svg>
 
             <button id="reset"><span class="invert-text">Reset Color</span></button>

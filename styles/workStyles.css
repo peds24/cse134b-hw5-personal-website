@@ -13,19 +13,6 @@ body {
     height: 100vh;
     overflow-x: hidden;
     font-size: var(--font-size-base);
-    color: var(--text-color);
-}
-a {
-    color: var(--primary-color);
-    transition: color var(--transition-duration) var(--transition-ease);
-}
-
-a:visited {
-    color: var(--primary-color);
-}
-
-a:hover {
-    color: var(--hover-color);
 }
 
 header {
@@ -46,9 +33,6 @@ header nav a {
     font-size: 1.5rem;
 }
 
-header nav a:hover {
-    color: var(--hover-color);
-}
 
 main {
     width: 95%;
@@ -91,10 +75,12 @@ content-card h4 {
 }
 
 content-card ul {
+    color: var(--text-color);
     padding-left: 1rem;
 }
 
 content-card ul li {
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 

@@ -77,7 +77,7 @@ class ProjectCard extends HTMLElement {
         }
 
         a:hover {
-            color: var(--hover-color);
+            filter: invert();
         }
 
         a[href="private"] {
