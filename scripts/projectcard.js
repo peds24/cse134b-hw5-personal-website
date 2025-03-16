@@ -38,7 +38,6 @@ class ProjectCard extends HTMLElement {
         .card-elem img {
             width: 100%;
             height: auto;
-            border-radius: 25px;
         }
         .card-elem .text {
             display: flex;
