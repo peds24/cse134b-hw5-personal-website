@@ -83,7 +83,7 @@ footer{
     
 }
 
-#load-local:hover, #load-remote:hover{
+#load-local:hover, #load-remote:hover, #clear-storage:hover{
     background-color: var(--hover-color);
     color: black;
     cursor: pointer;
@@ -103,9 +103,4 @@ footer{
     project-card{
         width: 95%;
     }
-}
-
-@media (max-width: 1195px) and (min-width: 835px) {
-
-
 }
