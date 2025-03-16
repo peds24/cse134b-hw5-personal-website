@@ -1,27 +1,34 @@
-
 [
     {
-        "title": "Example Project 1",
-        "imageLarge": "/images/sampleImage.png",
-        "imageSmall": "/images/samplecode.png",
-        "languages": "Python",
-        "description": "Description 1",
-        "link": ""
+        "title": "Personal Portfolio Website",
+        "imageLarge": "/images/portfolioWeb.png",
+        "imageSmall": "/images/webLang.png",
+        "languages": "HTML, CSS, JS",
+        "description": "A personal portfolio website showcasing my projects, work experience, and contact information. The website features a responsive design, interactive elements, and a functional contact form. Built using HTML, CSS, and JavaScript to provide a seamless user experience.",
+        "link": "https://github.com/peds24/cse134b-hw5-personal-website"
     },
     {
-        "title": "Example Project 2",
-        "imageLarge": "/images/sampleImage.png",
-        "imageSmall": "/images/samplecode.png",
-        "languages": "Java",
-        "description": "Description 2",
-        "link": ""
+        "title": "WebScribe",
+        "imageLarge": "/images/webscribe.png",
+        "imageSmall": "/images/webLang.png",
+        "languages": "HTML, CSS, JS",
+        "description": "A UI design project that evolved from ocean-themed wireframes to a modern, minimalist interface. Features transparent rotating panes with a matte glass aesthetic, multiple color schemes, and interactive elements like volume control and sliding animations. The design approach uses background-only color tagging for a distinctive look, inspired by apps like Obsidian, Fantastical, and TickTick.",
+        "link": "https://github.com/cse110-sp24-group17/cse110-sp24-group17"
     },
     {
-        "title": "Example Project 3",
-        "imageLarge": "/images/sampleImage.png",
-        "imageSmall": "/images/samplecode.png",
-        "languages": "React",
-        "description": "Description 3",
-        "link": ""
+        "title": "Compress/Uncompress a File",
+        "imageLarge": "/images/encoding.jpg",
+        "imageSmall": "/images/C.png",
+        "languages": "C++",
+        "description": "A C++ tool utilizing Huffman encoding for text file compression and decompression. Includes a compression program for optimized character representation and a decompression program that reconstructs the original text. Features a header file for character frequency data and plans to optimize header format using array indexing for efficient storage.",
+        "link": "private"
+    },
+    {
+        "title": "Graph Project",
+        "imageLarge": "/images/graphProj.png",
+        "imageSmall": "/images/C.png",
+        "languages": "C++",
+        "description": "A custom C++ graph class developed for an advanced data structures course at UCSD. Implements Dijkstra's algorithm, a modified BFS for shortest paths, and a Disjoint Set for connected components with threshold constraints. Focused on runtime efficiency and adherence to API specifications.",
+        "link": "private"
     }
 ]
