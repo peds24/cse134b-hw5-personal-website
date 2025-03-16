@@ -161,6 +161,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadRemoteButton = document.getElementById("load-remote");
     const clearStorageButton = document.getElementById("clear-storage");
 
+    // Create and display a dummy card
+    const dummyProject = {
+        title: "Sample Project",
+        imageLarge: "https://placehold.co/250",
+        imageSmall: "https://placehold.co/150",
+        description: "This is a sample project card. Click the load buttons to fetch real projects.",
+        languages: "HTML, CSS, JavaScript",
+        link: "https://example.com",
+    };
+    
     function createProjectCard(project) {
         const card = document.createElement('project-card');
         card.setAttribute('title', project.title);
@@ -181,43 +191,48 @@ document.addEventListener("DOMContentLoaded", () => {
         return card;
     }
 
-    function loadProjectsFromStorage(storageKey) {
-        const projects = JSON.parse(localStorage.getItem(storageKey));
-        if (projects) {
-            projects.forEach(project => {
-                const card = createProjectCard(project);
-                cardContainer.appendChild(card);
-            });
-        }
-    }
+    // Display the dummy card initially
+    cardContainer.appendChild(createProjectCard(dummyProject));
 
-    async function fetchAndSaveProjects(url, storageKey) {
+    async function loadProjects(url) {
         try {
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`Error: ${response.statusText}`);
             }
             const projects = await response.json();
+            
+            // Clear existing cards
+            cardContainer.innerHTML = '';
+            
+            // Create and append new cards
+            projects.forEach(project => {
+                const card = createProjectCard(project);
+                cardContainer.appendChild(card);
+            });
+            
+            // Store in localStorage
+            const storageKey = url.includes('netlify') ? 'remote_projects' : 'local_projects';
             localStorage.setItem(storageKey, JSON.stringify(projects));
-            console.log(`Projects saved to ${storageKey}.`);
-            loadProjectsFromStorage(storageKey);
+            console.log(`Projects loaded and saved to ${storageKey}.`);
         } catch (error) {
-            console.error(`Failed to fetch and save projects: ${error.message}`);
+            console.error(`Failed to fetch and load projects: ${error.message}`);
+            // Restore dummy card if loading fails
+            cardContainer.innerHTML = '';
+            cardContainer.appendChild(createProjectCard(dummyProject));
         }
     }
 
-    // Load projects from localStorage on page load
-    loadProjectsFromStorage('local_projects');
-    loadProjectsFromStorage('remote_projects');
-
     // Add event listeners for the buttons
-    loadLocalButton.addEventListener("click", () => fetchAndSaveProjects("./data/projects.json", "local_projects"));
-    loadRemoteButton.addEventListener("click", () => fetchAndSaveProjects("https://pedro-serdio.netlify.app/public/db.json", "remote_projects"));
+    loadLocalButton.addEventListener("click", () => loadProjects("./data/projects.json"));
+    loadRemoteButton.addEventListener("click", () => loadProjects("https://pedro-serdio.netlify.app/public/db.json"));
 
     clearStorageButton.addEventListener("click", () => {
         localStorage.removeItem('local_projects');
         localStorage.removeItem('remote_projects');
         console.log("Local storage cleared.");
-        cardContainer.innerHTML = ''; // Clear the displayed cards
+        // Reset to dummy card
+        cardContainer.innerHTML = '';
+        cardContainer.appendChild(createProjectCard(dummyProject));
     });
 });
