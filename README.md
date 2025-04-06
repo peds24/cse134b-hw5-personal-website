@@ -1,5 +1,6 @@
 https://pedro-serdio.netlify.app/
 
+> **CURRENT WEB PORTFOLIO**
 ### Biggest Improvements to Site
 *Summary:*
 This project incorporates several updates aimed at improving usability, accessibility, and functionality. The theme switcher was revamped with a toggle/sliding switch to provide a clearer indication of the active theme (light/dark), and custom accent colors were simplified to reduce cognitive load. To enhance accessibility, default page elements, such as a no-JS contact form and project section, were added to ensure functionality even if JavaScript is disabled. Media queries were finalized for seamless responsiveness across three device types: phone, tablet, and desktop. Additionally, EmailJS integration was implemented in the contact form, enabling users to send messages directly to my email for faster responses. These changes prioritize a user-friendly and inclusive experience while maintaining efficient communication.
