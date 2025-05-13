@@ -31,4 +31,13 @@
         "description": "A custom C++ graph class developed for an advanced data structures course at UCSD. Implements Dijkstra's algorithm, a modified BFS for shortest paths, and a Disjoint Set for connected components with threshold constraints. Focused on runtime efficiency and adherence to API specifications.",
         "link": "private"
     }
+    ,
+    {
+        "title": "Digital Book Library Tool",
+        "imageLarge": "/images/digitalLibrary.png",
+        "imageSmall": "/images/python.png",
+        "languages": "Python",
+        "description": "Developed a full-stack Python application integrating the Google Books API for metadata retrieval with data storage that manages diverse media types including books, comics, and manga. Implemented multiple data input methods including manual entry, individual ISBN lookups, and bulk imports to streamline collection management and reduce cataloging time. Designed a modular, extensible codebase with clean architecture principles that separates API handling, database management, and core functionality for maintainability and future expansion. Currently planning implementation of a GUI inspired by the Library of Babel website for an interactive, web-accessible display and consultation of book collections.",
+        "link": "private"
+    }
 ]
